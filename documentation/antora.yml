@@ -1,0 +1,5 @@
+name: dp-capaciteitskaart
+title: Capaciteitskaart
+version: true
+nav:
+- modules/ROOT/nav.adoc
