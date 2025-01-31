@@ -1,6 +1,0 @@
-name: dp-capaciteitskaart
-version: v0.draft
-title: Capaciteitskaart
-nav:
-- modules/ROOT/nav.adoc
-- modules/schema/nav.adoc
