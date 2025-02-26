@@ -298,12 +298,14 @@
                     "items": {
                         "$ref": "#/$defs/Work"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
-                "short_code",
-                "works"
+                "short_code"
             ],
             "title": "EnergyArea",
             "type": "object"

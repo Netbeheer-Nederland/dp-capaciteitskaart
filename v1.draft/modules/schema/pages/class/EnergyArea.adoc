@@ -159,11 +159,6 @@ legend: "" {
 | n/a
 | +++Short code name for EnergyArea. This is the *Uniek ID voedingsgebied* in the previous implementation.+++
 
-| <<works,`works`>>
-| 1..*
-| xref::class/Work.adoc[`Work`]
-| +++All the works performed for this EnergyArea.+++
-
 | <<demand_alleviation_year,`demand_alleviation_year`>>
 | 0..1
 | https://w3id.org/linkml/Integer[`integer`]
@@ -253,6 +248,11 @@ legend: "" {
 | 0..*
 | xref::class/PostcodeArea.adoc[`PostcodeArea`]
 | +++Postcode Areas serviced by this EnergyArea.+++
+
+| <<works,`works`>>
+| 0..*
+| xref::class/Work.adoc[`Work`]
+| +++All the works performed for this EnergyArea.+++
 
 | <<m_rid,`m_rid`>>
 | 0..1
@@ -666,7 +666,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.Works`
 | Cardinality
-| 1..*
+| 0..*
 | Type
 | xref::class/Work.adoc[`Work`]
 
