@@ -113,12 +113,12 @@ legend: "" {
 | Name | Cardinality | Type | Description
 
 | <<description,`description`>>
-| 0..*
-| n/a
+| 0..1
+| https://w3id.org/linkml/String[`string`]
 | +++Description of the name type.+++
 
 | <<name_type_authority,`name_type_authority`>>
-| 0..*
+| 0..1
 | xref::class/NameTypeAuthority.adoc[`NameTypeAuthority`]
 | +++Authority responsible for managing names of this type.+++
 |===
@@ -136,9 +136,9 @@ legend: "" {
 | URI
 | `cim:NameType.description`
 | Cardinality
-| 0..*
+| 0..1
 | Type
-| n/a
+| https://w3id.org/linkml/String[`string`]
 
 
 |===
@@ -153,7 +153,7 @@ legend: "" {
 | URI
 | `cim:NameType.NameTypeAuthority`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | xref::class/NameTypeAuthority.adoc[`NameTypeAuthority`]
 

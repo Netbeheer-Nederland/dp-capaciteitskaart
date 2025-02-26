@@ -35,22 +35,22 @@
 | Name | Cardinality | Type | Description
 
 | <<end,`end`>>
-| 0..*
+| 0..1
 | https://w3id.org/linkml/Date[`date`]
 | +++End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01* as day. This is the *Beoogde in bedrijfsname* in the previous implementation.+++
 
 | <<quarter,`quarter`>>
-| 0..*
+| 0..1
 | https://w3id.org/linkml/Integer[`integer`]
 | +++Quarter indicator for when this Work is completed. Use in combination with this:DateTimeInterval.year.+++
 
 | <<start,`start`>>
-| 0..*
+| 0..1
 | https://w3id.org/linkml/Date[`date`]
 | +++Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01* as day. This is the *Startdatum* in the previous implementation.+++
 
 | <<year,`year`>>
-| 0..*
+| 0..1
 | https://w3id.org/linkml/Integer[`integer`]
 | +++Year indicator for when this Work is completed. Use in combination with this:DateTimeInterval.quarter.+++
 |===
@@ -68,7 +68,7 @@
 | URI
 | `cim:DateTimeInterval.end`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | https://w3id.org/linkml/Date[`date`]
 
@@ -85,7 +85,7 @@
 | URI
 | `this:DateTimeInterval.quarter`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | https://w3id.org/linkml/Integer[`integer`]
 
@@ -102,7 +102,7 @@
 | URI
 | `cim:DateTimeInterval.start`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | https://w3id.org/linkml/Date[`date`]
 
@@ -119,7 +119,7 @@
 | URI
 | `this:DateTimeInterval.year`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | https://w3id.org/linkml/Integer[`integer`]
 

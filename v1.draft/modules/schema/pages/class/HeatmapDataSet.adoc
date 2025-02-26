@@ -134,84 +134,84 @@ legend: "" {
 | Name | Cardinality | Type | Description
 
 | <<conforms_to,`conforms_to`>>
-| 1..*
+| 1
 | n/a
 | +++ID for the schema used to create the instance data.+++
 
 | <<creator,`creator`>>
-| 1..*
+| 1
 | n/a
 | +++An entity responsible for making the resource.+++
+
+| <<identifier,`identifier`>>
+| 1
+| n/a
+| +++An unambiguous reference to the resource within a given context.+++
+
+| <<issued,`issued`>>
+| 1
+| https://w3id.org/linkml/Date[`date`]
+| +++Date of formal issuance of the resource.+++
 
 | <<energy_areas,`energy_areas`>>
 | 1..*
 | xref::class/EnergyArea.adoc[`EnergyArea`]
 | +++A list of energy areas with heatmap data.+++
 
-| <<identifier,`identifier`>>
-| 1..*
-| n/a
-| +++An unambiguous reference to the resource within a given context.+++
-
-| <<issued,`issued`>>
-| 1..*
-| https://w3id.org/linkml/Date[`date`]
-| +++Date of formal issuance of the resource.+++
-
 | <<contributor,`contributor`>>
-| 0..*
+| 0..1
 | n/a
 | +++An entity responsible for making contributions to the resource.+++
 
 | <<coverage,`coverage`>>
-| 0..*
+| 0..1
 | n/a
 | +++The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant.+++
 
 | <<date,`date`>>
-| 0..*
+| 0..1
 | https://w3id.org/linkml/Date[`date`]
 | +++A point of time associated with an event in the lifecycle of the resource. For this implementation this will represent the date the data set is valid from.+++
 
 | <<description,`description`>>
-| 0..*
+| 0..1
 | n/a
 | +++An account of the resource.+++
 
 | <<format,`format`>>
-| 0..*
+| 0..1
 | n/a
 | +++The file format of the resource.+++
 
 | <<language,`language`>>
-| 0..*
+| 0..1
 | n/a
 | +++A language of the resource.+++
 
 | <<publisher,`publisher`>>
-| 0..*
+| 0..1
 | n/a
 | +++An entity responsible for making the resource available.+++
 
 | <<rights,`rights`>>
-| 0..*
+| 0..1
 | n/a
 | +++Information about rights held in and over the resource.+++
 
 | <<title,`title`>>
-| 0..*
+| 0..1
 | n/a
 | +++A name given to the resource.+++
+
+| <<valid,`valid`>>
+| 0..1
+| xref::class/DateTimeInterval.adoc[`DateTimeInterval`]
+| +++A date range for the validity of a resource. This should be two dates, start & end. The first date is inclusive and the second date exclusive.+++
 
 | <<updated,`updated`>>
 | 0..*
 | xref::class/UpdateInfo.adoc[`UpdateInfo`]
 | +++Type of information that was updated for this dataset.+++
-
-| <<valid,`valid`>>
-| 0..*
-| xref::class/DateTimeInterval.adoc[`DateTimeInterval`]
-| +++A date range for the validity of a resource. This should be two dates, start & end. The first date is inclusive and the second date exclusive.+++
 |===
 
 '''
@@ -227,7 +227,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/conformsTo[`dct:conformsTo`]
 | Cardinality
-| 1..*
+| 1
 | Type
 | n/a
 
@@ -244,7 +244,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/contributor[`dct:contributor`]
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | n/a
 
@@ -261,7 +261,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/coverage[`dct:coverage`]
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | n/a
 
@@ -278,7 +278,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/creator[`dct:creator`]
 | Cardinality
-| 1..*
+| 1
 | Type
 | n/a
 
@@ -295,7 +295,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/date[`dct:date`]
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | https://w3id.org/linkml/Date[`date`]
 
@@ -312,7 +312,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/description[`dct:description`]
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | n/a
 
@@ -346,7 +346,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/format[`dct:format`]
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | n/a
 
@@ -363,7 +363,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/identifier[`dct:identifier`]
 | Cardinality
-| 1..*
+| 1
 | Type
 | n/a
 
@@ -380,7 +380,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/issued[`dct:issued`]
 | Cardinality
-| 1..*
+| 1
 | Type
 | https://w3id.org/linkml/Date[`date`]
 
@@ -397,7 +397,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/language[`dct:language`]
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | n/a
 
@@ -414,7 +414,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/publisher[`dct:publisher`]
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | n/a
 
@@ -431,7 +431,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/rights[`dct:rights`]
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | n/a
 
@@ -448,7 +448,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/title[`dct:title`]
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | n/a
 
@@ -482,7 +482,7 @@ legend: "" {
 | URI
 | http://purl.org/dc/terms/valid[`dct:valid`]
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | xref::class/DateTimeInterval.adoc[`DateTimeInterval`]
 

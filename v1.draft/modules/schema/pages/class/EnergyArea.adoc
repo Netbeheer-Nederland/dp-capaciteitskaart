@@ -155,7 +155,7 @@ legend: "" {
 | Name | Cardinality | Type | Description
 
 | <<short_code,`short_code`>>
-| 1..*
+| 1
 | n/a
 | +++Short code name for EnergyArea. This is the *Uniek ID voedingsgebied* in the previous implementation.+++
 
@@ -165,104 +165,104 @@ legend: "" {
 | +++All the works performed for this EnergyArea.+++
 
 | <<demand_alleviation_year,`demand_alleviation_year`>>
-| 0..*
+| 0..1
 | https://w3id.org/linkml/Integer[`integer`]
 | +++Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea.+++
 
 | <<demand_available_capacity,`demand_available_capacity`>>
-| 0..*
+| 0..1
 | xref::enumeration/MegaW.adoc[`MegaW`]
 | +++The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the *Aanwezige transportcapaciteit (in MW) afname huidige jaar* in the previous implementation.+++
 
 | <<demand_capacity_in_queue,`demand_capacity_in_queue`>>
-| 0..*
+| 0..1
 | xref::enumeration/MegaW.adoc[`MegaW`]
 | +++The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation.+++
 
 | <<demand_constraint,`demand_constraint`>>
-| 0..*
+| 0..1
 | xref::enumeration/RAGKind.adoc[`RAGKind`]
 | +++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided.+++
 
 | <<demand_energy_area_short_code,`demand_energy_area_short_code`>>
-| 0..*
+| 0..1
 | https://w3id.org/linkml/String[`string`]
 | +++Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.+++
 
 | <<demand_forecast_capacity,`demand_forecast_capacity`>>
-| 0..*
+| 0..1
 | xref::enumeration/MegaW.adoc[`MegaW`]
 | +++Sum of all demand (in MW) forecast for the current year at the EnergyArea.+++
 
 | <<demand_quoted_capacity,`demand_quoted_capacity`>>
-| 0..*
+| 0..1
 | xref::enumeration/MegaW.adoc[`MegaW`]
 | +++Sum of all demand (in MW) currently quoted at the EnergyArea.  This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation.+++
 
 | <<demand_requests_in_queue,`demand_requests_in_queue`>>
-| 0..*
+| 0..1
 | https://w3id.org/linkml/Integer[`integer`]
 | +++Number of demand requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - afname* in the previous implementation.+++
 
 | <<generation_alleviation_year,`generation_alleviation_year`>>
-| 0..*
+| 0..1
 | https://w3id.org/linkml/Integer[`integer`]
 | +++Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea.+++
 
 | <<generation_available_capacity,`generation_available_capacity`>>
-| 0..*
+| 0..1
 | xref::enumeration/MegaW.adoc[`MegaW`]
 | +++Available generation capacity (in MW) at the EnergyArea. This is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation.+++
 
 | <<generation_capacity_in_queue,`generation_capacity_in_queue`>>
-| 0..*
+| 0..1
 | xref::enumeration/MegaW.adoc[`MegaW`]
 | +++The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation.+++
 
 | <<generation_constraint,`generation_constraint`>>
-| 0..*
+| 0..1
 | xref::enumeration/RAGKind.adoc[`RAGKind`]
 | +++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided.+++
 
 | <<generation_energy_area_short_code,`generation_energy_area_short_code`>>
-| 0..*
+| 0..1
 | https://w3id.org/linkml/String[`string`]
 | +++Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.+++
 
 | <<generation_forecast_capacity,`generation_forecast_capacity`>>
-| 0..*
+| 0..1
 | xref::enumeration/MegaW.adoc[`MegaW`]
 | +++Sum of all forecast generation (in MW) for the current year at the EnergyArea.+++
 
 | <<generation_quoted_capacity,`generation_quoted_capacity`>>
-| 0..*
+| 0..1
 | xref::enumeration/MegaW.adoc[`MegaW`]
 | +++Sum of all currently quoted generation (in MW) at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous implementation.+++
 
 | <<generation_requests_in_queue,`generation_requests_in_queue`>>
-| 0..*
+| 0..1
 | https://w3id.org/linkml/Integer[`integer`]
 | +++Number of generation requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - invoeding* in the previous implementation.+++
+
+| <<type,`type`>>
+| 0..1
+| xref::enumeration/EnergyAreaKind.adoc[`EnergyAreaKind`]
+| +++Type of EnergyArea, either a regular energy area, or congestion area. Only the TSO dataset can define congestion areas.+++
 
 | <<postcode_areas,`postcode_areas`>>
 | 0..*
 | xref::class/PostcodeArea.adoc[`PostcodeArea`]
 | +++Postcode Areas serviced by this EnergyArea.+++
 
-| <<type,`type`>>
-| 0..*
-| xref::enumeration/EnergyAreaKind.adoc[`EnergyAreaKind`]
-| +++Type of EnergyArea, either a regular energy area, or congestion area. Only the TSO dataset can define congestion areas.+++
+| <<m_rid,`m_rid`>>
+| 0..1
+| https://w3id.org/linkml/String[`string`]
+| +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
 
 | <<description,`description`>>
 | 0..*
 | https://w3id.org/linkml/String[`string`]
 | +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.+++
-
-| <<m_rid,`m_rid`>>
-| 0..*
-| https://w3id.org/linkml/String[`string`]
-| +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
 
 | <<names,`names`>>
 | 0..*
@@ -283,7 +283,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.demandAlleviationYear`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | https://w3id.org/linkml/Integer[`integer`]
 
@@ -300,7 +300,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.demandAvailableCapacity`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | xref::enumeration/MegaW.adoc[`MegaW`]
 
@@ -317,7 +317,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.demandCapacityInQueue`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | xref::enumeration/MegaW.adoc[`MegaW`]
 
@@ -334,7 +334,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.demandConstraint`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | xref::enumeration/RAGKind.adoc[`RAGKind`]
 
@@ -351,7 +351,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.demandEnergyAreaShortCode`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -368,7 +368,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.demandForecastCapacity`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | xref::enumeration/MegaW.adoc[`MegaW`]
 
@@ -385,7 +385,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.demandQuotedCapacity`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | xref::enumeration/MegaW.adoc[`MegaW`]
 
@@ -402,7 +402,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.demandRequestsInQueue`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | https://w3id.org/linkml/Integer[`integer`]
 
@@ -439,7 +439,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.generationAlleviationYear`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | https://w3id.org/linkml/Integer[`integer`]
 
@@ -456,7 +456,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.generationAvailableCapacity`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | xref::enumeration/MegaW.adoc[`MegaW`]
 
@@ -473,7 +473,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.generationCapacityInQueue`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | xref::enumeration/MegaW.adoc[`MegaW`]
 
@@ -490,7 +490,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.generationConstraint`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | xref::enumeration/RAGKind.adoc[`RAGKind`]
 
@@ -507,7 +507,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.generationEnergyAreaShortCode`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -524,7 +524,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.generationForecastCapacity`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | xref::enumeration/MegaW.adoc[`MegaW`]
 
@@ -541,7 +541,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.generationQuotedCapacity`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | xref::enumeration/MegaW.adoc[`MegaW`]
 
@@ -558,7 +558,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.generationRequestsInQueue`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | https://w3id.org/linkml/Integer[`integer`]
 
@@ -575,7 +575,7 @@ legend: "" {
 | URI
 | `cim:IdentifiedObject.mRID`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -632,7 +632,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.shortCode`
 | Cardinality
-| 1..*
+| 1
 | Type
 | n/a
 
@@ -649,7 +649,7 @@ legend: "" {
 | URI
 | `this:EnergyArea.type`
 | Cardinality
-| 0..*
+| 0..1
 | Type
 | xref::enumeration/EnergyAreaKind.adoc[`EnergyAreaKind`]
 

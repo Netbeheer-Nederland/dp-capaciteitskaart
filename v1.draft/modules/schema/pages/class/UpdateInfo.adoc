@@ -32,12 +32,12 @@
 | Name | Cardinality | Type | Description
 
 | <<date,`date`>>
-| 1..*
+| 1
 | https://w3id.org/linkml/Date[`date`]
 | +++Date of the update.+++
 
 | <<type,`type`>>
-| 1..*
+| 1
 | xref::enumeration/UpdateInfoKind.adoc[`UpdateInfoKind`]
 | +++Type of the update.+++
 |===
@@ -55,7 +55,7 @@
 | URI
 | `cim:UpdateInfo.date`
 | Cardinality
-| 1..*
+| 1
 | Type
 | https://w3id.org/linkml/Date[`date`]
 
@@ -72,7 +72,7 @@
 | URI
 | `this:UpdateInfo.type`
 | Cardinality
-| 1..*
+| 1
 | Type
 | xref::enumeration/UpdateInfoKind.adoc[`UpdateInfoKind`]
 
