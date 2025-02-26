@@ -2,7 +2,7 @@ name: dp-capaciteitskaart
 description: |-
   Information models for the Capaciteitskaart.
 title: Capaciteitskaart
-id: http://data.netbeheernederland.nl/dp-capaciteitskaart/version/1.3.0
+id: http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart
 license: https://www.apache.org/licenses/LICENSE-2.0.txt
 imports:
 - linkml:types
@@ -397,6 +397,11 @@ classes:
           in the previous implementation.
         slot_uri: this:Work.projectName
         required: true
+      project_url:
+        description: URL to the project web page or portal where the project
+          information can be found.
+        slot_uri: this:Work.projectURL
+        required: false
     class_uri: cim:Work
   BaseWork:
     description: Common representation for work and work tasks.
