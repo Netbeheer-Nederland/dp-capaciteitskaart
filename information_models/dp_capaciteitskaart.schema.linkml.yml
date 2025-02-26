@@ -375,7 +375,7 @@ classes:
         slot_uri: this:EnergyArea.Works
         multivalued: true
         range: Work
-        required: true
+        required: false
       postcode_areas:
         description: Postcode Areas serviced by this EnergyArea.
         slot_uri: this:EnergyArea.PostcodeAreas
