@@ -28,12 +28,13 @@ HeatmapDataSet.class: dataset
 EnergyArea.class: grid
 PostcodeArea.class: enterprise
 
-DateTimeInterval.class: grid
-Work.class: enterprise
 3.class: empty
-
+Work.class: enterprise
 4.class: empty
+
+DateTimeInterval.class: grid
 WorkTimeSchedule.class: enterprise
+5.class: empty
 
 HeatmapDataSet -> UpdateInfo: "updated"
 HeatmapDataSet -> DateTimeInterval: "valid"
