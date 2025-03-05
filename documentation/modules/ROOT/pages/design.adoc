@@ -3,7 +3,7 @@
 Dit ontwerp beschrijft de beoogde gebruiksscenarios voor het dataproduct
 _Capaciteitskaart_, alsmede de achterliggende architectuur en gemaakte keuzes.
 
-[NOTE]
+[NOTE,caption="opmerking"]
 ====
 include::partial$data_product.adoc[]
 ====
@@ -220,7 +220,7 @@ van toepassing is.
 
 === Volume, variety, veracity, velocity
 
-[NOTE]
+[NOTE,caption="opmerking"]
 ====
 include::partial$four_v.adoc[]
 ====
