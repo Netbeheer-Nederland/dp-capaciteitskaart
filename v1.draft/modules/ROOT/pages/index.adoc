@@ -167,13 +167,14 @@ classes: {
 The data is intended to be presented as a hierarchy with a
 xref:schema:class/HeatmapDataSet.adoc[`HeatmapDataSet`] at its root, followed
 by xref:schema:class/EnergyArea.adoc[`EnergyArea`] nested inside the
-`HeatmapDataSet`.
+`HeatmapDataSet`. A `GeographicalRegion` is used to allow consolidation of
+multiple datasets.
 
 This information model is based in part on the `LTDS Capacity Heatmap
 Information Model`, which itself is published under the `Open Government
 License`, under ©Crown copyright 2024.
 
-== Additional schemas
+== Additional artifacts
 
 * xref:schema:attachment$schemas/json_schema/dp_capaciteitskaart.json_schema.json[JSON schema]
 * xref:schema:attachment$examples/dp_capaciteitskaart_dso.example.json[Example DSO instance data]
