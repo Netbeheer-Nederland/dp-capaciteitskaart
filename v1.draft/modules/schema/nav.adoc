@@ -4,6 +4,10 @@
 ** Classes
 *** xref::class/HeatmapDataSet.adoc[`HeatmapDataSet` (root)]
 
+*** xref::class/AreaCapacity.adoc[`AreaCapacity`]
+
+
+
 *** xref::class/BaseWork.adoc[`BaseWork`]
 
 
@@ -17,6 +21,10 @@
 
 
 *** xref::class/EnergyArea.adoc[`EnergyArea`]
+
+
+
+*** xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
 
 
 
@@ -38,6 +46,10 @@
 
 
 *** xref::class/PostcodeArea.adoc[`PostcodeArea`]
+
+
+
+*** xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
 
 
 

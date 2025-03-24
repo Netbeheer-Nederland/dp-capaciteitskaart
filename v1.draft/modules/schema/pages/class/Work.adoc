@@ -2,7 +2,7 @@
 :toclevels: 4
 
 
-+++Document used to request, initiate, track and record work. Use the *description* attribute to add additional information about this *Work*. This is *Toelichting bijzonderheden rondom planning* in the previous implementation.+++
++++Document used to request, initiate, track and record work. Use the "description" attribute to add additional information about this "Work". This is "Toelichting bijzonderheden rondom planning" in the previous implementation.+++
 
 
 [cols="h,3",width=65%]
@@ -130,7 +130,7 @@ legend: "" {
 | <<project_name,`project_name`>>
 | 1
 | https://w3id.org/linkml/String[`string`]
-| +++Name of the project this work belongs to. This is the *Projectnaam* in the previous implementation.+++
+| +++Name of the project this work belongs to. This is the "Projectnaam" in the previous implementation.+++
 
 | <<time_schedules,`time_schedules`>>
 | 1..*
@@ -160,7 +160,7 @@ legend: "" {
 | <<description,`description`>>
 | 0..*
 | https://w3id.org/linkml/String[`string`]
-| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.+++
+| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the "Herkenbare naam voedingsgebied" in the previous implementation.+++
 
 | <<names,`names`>>
 | 0..*
@@ -174,7 +174,7 @@ legend: "" {
 //[discrete]
 [#description]
 === `description`
-+++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.+++
++++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the "Herkenbare naam voedingsgebied" in the previous implementation.+++
 
 [cols="h,4",width=65%]
 |===
@@ -234,7 +234,7 @@ legend: "" {
 //[discrete]
 [#project_name]
 === `project_name`
-+++Name of the project this work belongs to. This is the *Projectnaam* in the previous implementation.+++
++++Name of the project this work belongs to. This is the "Projectnaam" in the previous implementation.+++
 
 [cols="h,4",width=65%]
 |===

@@ -7,6 +7,9 @@
 | Name | Description
 
 
+| xref::class/AreaCapacity.adoc[`AreaCapacity`]
+| +++Capacity information for a specific EnergyArea.+++
+
 | xref::class/BaseWork.adoc[`BaseWork`]
 | +++Common representation for work and work tasks.+++
 
@@ -18,6 +21,9 @@
 
 | xref::class/EnergyArea.adoc[`EnergyArea`]
 | +++Describes an area having energy production or consumption. Specializations are intended to support the load allocation function as typically required in energy management systems or planning studies to allocate hypothesized load levels to individual load points for power flow analysis. Often the energy area can be linked to both measured and forecast load levels.+++
+
+| xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
+| +++A geographical region of a power system network model.+++
 
 | xref::class/HeatmapDataSet.adoc[`HeatmapDataSet`]
 | +++A single instance of a published dataset. The descriptions of these fields are taken from the Dublin Core Standard.+++
@@ -37,6 +43,9 @@
 | xref::class/PostcodeArea.adoc[`PostcodeArea`]
 | +++A geographic region that is defined by the initial letters or digits of a postcode.+++
 
+| xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
+| +++A subset of a geographical region of a power system network model.+++
+
 | xref::class/TimeSchedule.adoc[`TimeSchedule`]
 | +++Description of anything that changes through time. Time schedule is used to perform a single-valued function of time. Use inherited 'type' attribute to give additional information on this schedule, such as periodic (hourly, daily, weekly, monthly, etc.), day of the month, by date, calendar (specific times and dates).+++
 
@@ -44,7 +53,7 @@
 | +++Specific type of information that was updated for this dataset.+++
 
 | xref::class/Work.adoc[`Work`]
-| +++Document used to request, initiate, track and record work. Use the *description* attribute to add additional information about this *Work*. This is *Toelichting bijzonderheden rondom planning* in the previous implementation.+++
+| +++Document used to request, initiate, track and record work. Use the "description" attribute to add additional information about this "Work". This is "Toelichting bijzonderheden rondom planning" in the previous implementation.+++
 
 | xref::class/WorkTimeSchedule.adoc[`WorkTimeSchedule`]
 | +++Time schedule specific to work.+++

@@ -1,11 +1,154 @@
 {
     "$defs": {
+        "AreaCapacity": {
+            "additionalProperties": false,
+            "description": "Capacity information for a specific EnergyArea.",
+            "properties": {
+                "capacity_interval": {
+                    "$ref": "#/$defs/DateTimeInterval",
+                    "description": "Capacity information date and time interval. Allows providing multiple points in time to provide capacity information."
+                },
+                "demand_available_capacity": {
+                    "description": "The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the \"Aanwezige transportcapaciteit (in MW) afname huidige jaar\" in the previous implementation.",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "demand_capacity_in_queue": {
+                    "description": "The contract value of demand requests not yet granted. This is the \"Wachtrij in capaciteit - afname\" in the previous implementation.",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "demand_constraint": {
+                    "$ref": "#/$defs/RAGKind",
+                    "description": "A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided."
+                },
+                "demand_forecast_capacity": {
+                    "description": "Sum of all demand (in MW) forecast for the current year at the EnergyArea.",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "demand_quoted_capacity": {
+                    "description": "Sum of all demand (in MW) currently quoted at the EnergyArea.  This is the \"Benodigde transportcapaciteit (in MW) afname\" in the previous implementation.",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "demand_requests_in_queue": {
+                    "description": "Number of demand requests for new grid connections and capacity increases in queue. This is the \"Aantal unieke transportverzoeken in een wachtrij - afname\" in the previous implementation.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "demand_tso_limit": {
+                    "description": "TSO EnergyArea limit for demand (in MW).",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the \"Herkenbare naam voedingsgebied\" in the previous implementation.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "generation_available_capacity": {
+                    "description": "Available generation capacity (in MW) at the EnergyArea. This is the \"Aanwezige transportcapaciteit (in MW) invoeding huidige jaar\" in the previous implementation.",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "generation_capacity_in_queue": {
+                    "description": "The contract value of generation requests not yet granted. This is the \"Wachtrij in capaciteit - invoeding\" in the previous implementation.",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "generation_constraint": {
+                    "$ref": "#/$defs/RAGKind",
+                    "description": "A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided."
+                },
+                "generation_forecast_capacity": {
+                    "description": "Sum of all forecast generation (in MW) for the current year at the EnergyArea.",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "generation_quoted_capacity": {
+                    "description": "Sum of all currently quoted generation (in MW) at the EnergyArea. This is the \"Benodigde transportcapaciteit (in MW) invoeding\" in the previous implementation.",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "generation_requests_in_queue": {
+                    "description": "Number of generation requests for new grid connections and capacity increases in queue. This is the \"Aantal unieke transportverzoeken in een wachtrij - invoeding\" in the previous implementation.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "generation_tso_limit": {
+                    "description": "TSO EnergyArea limit for generation (in MW).",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "capacity_interval"
+            ],
+            "title": "AreaCapacity",
+            "type": "object"
+        },
         "BaseWork": {
             "additionalProperties": false,
             "description": "Common representation for work and work tasks.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the \"Herkenbare naam voedingsgebied\" in the previous implementation.",
                     "type": [
                         "string",
                         "null"
@@ -58,7 +201,7 @@
             "description": "Interval between two date and time points, where the interval includes the start time but excludes end time.",
             "properties": {
                 "end": {
-                    "description": "End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01* as day. This is the *Beoogde in bedrijfsname* in the previous implementation.",
+                    "description": "End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use \"01\" as day. This is the \"Beoogde in bedrijfsname\" in the previous implementation.",
                     "format": "date",
                     "type": [
                         "string",
@@ -75,7 +218,7 @@
                     ]
                 },
                 "start": {
-                    "description": "Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use *01* as day. This is the *Startdatum* in the previous implementation.",
+                    "description": "Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use \"01\" as day. This is the \"Startdatum\" in the previous implementation.",
                     "format": "date",
                     "type": [
                         "string",
@@ -98,7 +241,7 @@
             "description": "Parent class for different groupings of information collected and managed as a part of a business process. It will frequently contain references to other objects, such as assets, people and power system resources.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the \"Herkenbare naam voedingsgebied\" in the previous implementation.",
                     "type": [
                         "string",
                         "null"
@@ -136,32 +279,18 @@
             "additionalProperties": false,
             "description": "Describes an area having energy production or consumption. Specializations are intended to support the load allocation function as typically required in energy management systems or planning studies to allocate hypothesized load levels to individual load points for power flow analysis. Often the energy area can be linked to both measured and forecast load levels.",
             "properties": {
+                "area_capacity": {
+                    "items": {
+                        "$ref": "#/$defs/AreaCapacity"
+                    },
+                    "type": "array"
+                },
                 "demand_alleviation_year": {
-                    "description": "Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea.",
+                    "description": "Year (e.g. \"2028\") from which any capacity issues have been alleviated for the EnergyArea.",
                     "type": [
                         "integer",
                         "null"
                     ]
-                },
-                "demand_available_capacity": {
-                    "description": "The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the *Aanwezige transportcapaciteit (in MW) afname huidige jaar* in the previous implementation.",
-                    "minimum": 0,
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "demand_capacity_in_queue": {
-                    "description": "The contract value of demand requests not yet granted. This is the *Wachtrij in capaciteit - afname* in the previous implementation.",
-                    "minimum": 0,
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "demand_constraint": {
-                    "$ref": "#/$defs/RAGKind",
-                    "description": "A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided."
                 },
                 "demand_energy_area_short_code": {
                     "description": "Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.",
@@ -170,92 +299,24 @@
                         "null"
                     ]
                 },
-                "demand_forecast_capacity": {
-                    "description": "Sum of all demand (in MW) forecast for the current year at the EnergyArea.",
-                    "minimum": 0,
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "demand_quoted_capacity": {
-                    "description": "Sum of all demand (in MW) currently quoted at the EnergyArea.  This is the *Benodigde transportcapaciteit (in MW) afname* in the previous implementation.",
-                    "minimum": 0,
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "demand_requests_in_queue": {
-                    "description": "Number of demand requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - afname* in the previous implementation.",
-                    "minimum": 0,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the \"Herkenbare naam voedingsgebied\" in the previous implementation.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
                 "generation_alleviation_year": {
-                    "description": "Year (e.g. *2028*) from which any capacity issues have been alleviated for the EnergyArea.",
+                    "description": "Year (e.g. \"2028\") from which any capacity issues have been alleviated for the EnergyArea.",
                     "type": [
                         "integer",
                         "null"
                     ]
-                },
-                "generation_available_capacity": {
-                    "description": "Available generation capacity (in MW) at the EnergyArea. This is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in the previous implementation.",
-                    "minimum": 0,
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "generation_capacity_in_queue": {
-                    "description": "The contract value of generation requests not yet granted. This is the *Wachtrij in capaciteit - invoeding* in the previous implementation.",
-                    "minimum": 0,
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "generation_constraint": {
-                    "$ref": "#/$defs/RAGKind",
-                    "description": "A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided."
                 },
                 "generation_energy_area_short_code": {
                     "description": "Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.",
                     "type": [
                         "string",
-                        "null"
-                    ]
-                },
-                "generation_forecast_capacity": {
-                    "description": "Sum of all forecast generation (in MW) for the current year at the EnergyArea.",
-                    "minimum": 0,
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "generation_quoted_capacity": {
-                    "description": "Sum of all currently quoted generation (in MW) at the EnergyArea. This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous implementation.",
-                    "minimum": 0,
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "generation_requests_in_queue": {
-                    "description": "Number of generation requests for new grid connections and capacity increases in queue. This is the *Aantal unieke transportverzoeken in een wachtrij - invoeding* in the previous implementation.",
-                    "minimum": 0,
-                    "type": [
-                        "integer",
                         "null"
                     ]
                 },
@@ -287,7 +348,7 @@
                     ]
                 },
                 "short_code": {
-                    "description": "Short code name for EnergyArea. This is the *Uniek ID voedingsgebied* in the previous implementation."
+                    "description": "Short code name for EnergyArea. This is the \"Uniek ID voedingsgebied\" in the previous implementation."
                 },
                 "type": {
                     "$ref": "#/$defs/EnergyAreaKind",
@@ -305,7 +366,8 @@
                 }
             },
             "required": [
-                "short_code"
+                "short_code",
+                "area_capacity"
             ],
             "title": "EnergyArea",
             "type": "object"
@@ -319,63 +381,62 @@
             "title": "EnergyAreaKind",
             "type": "string"
         },
-        "HeatmapDataSet": {
+        "GeographicalRegion": {
             "additionalProperties": false,
-            "description": "A single instance of a published dataset. The descriptions of these fields are taken from the Dublin Core Standard.",
+            "description": "A geographical region of a power system network model.",
             "properties": {
-                "conforms_to": {
-                    "description": "ID for the schema used to create the instance data."
-                },
-                "contributor": {
-                    "description": "An entity responsible for making contributions to the resource."
-                },
-                "coverage": {
-                    "description": "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."
-                },
-                "creator": {
-                    "description": "An entity responsible for making the resource."
-                },
-                "date": {
-                    "description": "A point of time associated with an event in the lifecycle of the resource. For this implementation this will represent the date the data set is valid from.",
-                    "format": "date",
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the \"Herkenbare naam voedingsgebied\" in the previous implementation.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "description": {
-                    "description": "An account of the resource."
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
-                "energy_areas": {
-                    "description": "A list of energy areas with heatmap data.",
+                "names": {
+                    "description": "All names of this identified object.",
                     "items": {
-                        "$ref": "#/$defs/EnergyArea"
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "regions": {
+                    "description": "All sub-geographical regions within this geographical region.",
+                    "items": {
+                        "$ref": "#/$defs/SubGeographicalRegion"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "regions"
+            ],
+            "title": "GeographicalRegion",
+            "type": "object"
+        },
+        "HeatmapDataSet": {
+            "additionalProperties": false,
+            "description": "A single instance of a published dataset. The descriptions of these fields are taken from the Dublin Core Standard.",
+            "properties": {
+                "conforms_to": {},
+                "contact_point": {},
+                "geographical_regions": {
+                    "description": "All instances of GeographicalRegions",
+                    "items": {
+                        "$ref": "#/$defs/GeographicalRegion"
                     },
                     "type": "array"
                 },
-                "format": {
-                    "description": "The file format of the resource."
-                },
-                "identifier": {
-                    "description": "An unambiguous reference to the resource within a given context."
-                },
-                "issued": {
-                    "description": "Date of formal issuance of the resource.",
-                    "format": "date",
-                    "type": "string"
-                },
-                "language": {
-                    "description": "A language of the resource."
-                },
-                "publisher": {
-                    "description": "An entity responsible for making the resource available."
-                },
-                "rights": {
-                    "description": "Information about rights held in and over the resource."
-                },
-                "title": {
-                    "description": "A name given to the resource."
-                },
+                "identifier": {},
                 "updated": {
                     "description": "Type of information that was updated for this dataset.",
                     "items": {
@@ -396,14 +457,15 @@
                         }
                     ],
                     "description": "A date range for the validity of a resource. This should be two dates, start & end. The first date is inclusive and the second date exclusive."
-                }
+                },
+                "version": {}
             },
             "required": [
-                "conforms_to",
-                "creator",
                 "identifier",
-                "issued",
-                "energy_areas"
+                "conforms_to",
+                "contact_point",
+                "version",
+                "geographical_regions"
             ],
             "title": "HeatmapDataSet",
             "type": "object"
@@ -413,7 +475,7 @@
             "description": "This is a root class to provide common identification for all classes needing identification and naming attributes.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the \"Herkenbare naam voedingsgebied\" in the previous implementation.",
                     "type": [
                         "string",
                         "null"
@@ -509,10 +571,10 @@
             "properties": {
                 "demand_constraint": {
                     "$ref": "#/$defs/RAGKind",
-                    "description": "A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor afname* in the previous implementation."
+                    "description": "A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the \"Kleurcodering van het postcodegebied voor afname\" in the previous implementation."
                 },
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the \"Herkenbare naam voedingsgebied\" in the previous implementation.",
                     "type": [
                         "string",
                         "null"
@@ -520,7 +582,7 @@
                 },
                 "generation_constraint": {
                     "$ref": "#/$defs/RAGKind",
-                    "description": "A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor opwek* in the previous implementation."
+                    "description": "A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the \"Kleurcodering van het postcodegebied voor opwek\" in the previous implementation."
                 },
                 "m_rid": {
                     "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
@@ -543,7 +605,7 @@
                     "description": "Identifier for the postcode area. Contain four (4) numbers, followed by two (2) letters, uppercase. No spaces between the numbers and letters, i.e. \"1234AB\"."
                 },
                 "substation_short_code": {
-                    "description": "TenneT substation (*Onderstation*) which feeds this PostcodeArea. Use the *ck.EnergyArea.short_code* from the TenneT dataset to relate the PostcodeArea."
+                    "description": "TenneT substation (\"Onderstation\") which feeds this PostcodeArea. Use the \"ck.EnergyArea.short_code\" from the TenneT dataset to relate the PostcodeArea."
                 }
             },
             "required": [
@@ -565,12 +627,54 @@
             "title": "RAGKind",
             "type": "string"
         },
+        "SubGeographicalRegion": {
+            "additionalProperties": false,
+            "description": "A subset of a geographical region of a power system network model.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the \"Herkenbare naam voedingsgebied\" in the previous implementation.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "energy_areas": {
+                    "description": "Energy areas contained in the SubGeographicalRegion.",
+                    "items": {
+                        "$ref": "#/$defs/EnergyArea"
+                    },
+                    "type": "array"
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "energy_areas"
+            ],
+            "title": "SubGeographicalRegion",
+            "type": "object"
+        },
         "TimeSchedule": {
             "additionalProperties": false,
             "description": "Description of anything that changes through time. Time schedule is used to perform a single-valued function of time. Use inherited 'type' attribute to give additional information on this schedule, such as periodic (hourly, daily, weekly, monthly, etc.), day of the month, by date, calendar (specific times and dates).",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the \"Herkenbare naam voedingsgebied\" in the previous implementation.",
                     "type": [
                         "string",
                         "null"
@@ -647,10 +751,10 @@
         },
         "Work": {
             "additionalProperties": false,
-            "description": "Document used to request, initiate, track and record work. Use the *description* attribute to add additional information about this *Work*. This is *Toelichting bijzonderheden rondom planning* in the previous implementation.",
+            "description": "Document used to request, initiate, track and record work. Use the \"description\" attribute to add additional information about this \"Work\". This is \"Toelichting bijzonderheden rondom planning\" in the previous implementation.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the \"Herkenbare naam voedingsgebied\" in the previous implementation.",
                     "type": [
                         "string",
                         "null"
@@ -674,7 +778,7 @@
                     ]
                 },
                 "project_name": {
-                    "description": "Name of the project this work belongs to. This is the *Projectnaam* in the previous implementation.",
+                    "description": "Name of the project this work belongs to. This is the \"Projectnaam\" in the previous implementation.",
                     "type": "string"
                 },
                 "project_url": {
@@ -726,7 +830,7 @@
             "description": "Time schedule specific to work.",
             "properties": {
                 "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.",
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the \"Herkenbare naam voedingsgebied\" in the previous implementation.",
                     "type": [
                         "string",
                         "null"
@@ -787,59 +891,16 @@
     "description": "A single instance of a published dataset. The descriptions of these fields are taken from the Dublin Core Standard.",
     "metamodel_version": "1.7.0",
     "properties": {
-        "conforms_to": {
-            "description": "ID for the schema used to create the instance data."
-        },
-        "contributor": {
-            "description": "An entity responsible for making contributions to the resource."
-        },
-        "coverage": {
-            "description": "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."
-        },
-        "creator": {
-            "description": "An entity responsible for making the resource."
-        },
-        "date": {
-            "description": "A point of time associated with an event in the lifecycle of the resource. For this implementation this will represent the date the data set is valid from.",
-            "format": "date",
-            "type": [
-                "string",
-                "null"
-            ]
-        },
-        "description": {
-            "description": "An account of the resource."
-        },
-        "energy_areas": {
-            "description": "A list of energy areas with heatmap data.",
+        "conforms_to": {},
+        "contact_point": {},
+        "geographical_regions": {
+            "description": "All instances of GeographicalRegions",
             "items": {
-                "$ref": "#/$defs/EnergyArea"
+                "$ref": "#/$defs/GeographicalRegion"
             },
             "type": "array"
         },
-        "format": {
-            "description": "The file format of the resource."
-        },
-        "identifier": {
-            "description": "An unambiguous reference to the resource within a given context."
-        },
-        "issued": {
-            "description": "Date of formal issuance of the resource.",
-            "format": "date",
-            "type": "string"
-        },
-        "language": {
-            "description": "A language of the resource."
-        },
-        "publisher": {
-            "description": "An entity responsible for making the resource available."
-        },
-        "rights": {
-            "description": "Information about rights held in and over the resource."
-        },
-        "title": {
-            "description": "A name given to the resource."
-        },
+        "identifier": {},
         "updated": {
             "description": "Type of information that was updated for this dataset.",
             "items": {
@@ -860,14 +921,15 @@
                 }
             ],
             "description": "A date range for the validity of a resource. This should be two dates, start & end. The first date is inclusive and the second date exclusive."
-        }
+        },
+        "version": {}
     },
     "required": [
-        "conforms_to",
-        "creator",
         "identifier",
-        "issued",
-        "energy_areas"
+        "conforms_to",
+        "contact_point",
+        "version",
+        "geographical_regions"
     ],
     "title": "dp-capaciteitskaart",
     "type": "object",

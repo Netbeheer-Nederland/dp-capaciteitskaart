@@ -1,8 +1,8 @@
-= `TimeSchedule`
+= `GeographicalRegion`
 :toclevels: 4
 
 
-+++Description of anything that changes through time. Time schedule is used to perform a single-valued function of time. Use inherited 'type' attribute to give additional information on this schedule, such as periodic (hourly, daily, weekly, monthly, etc.), day of the month, by date, calendar (specific times and dates).+++
++++A geographical region of a power system network model.+++
 
 
 [cols="h,3",width=65%]
@@ -11,11 +11,11 @@
 | Class
 
 | URI
-| `cim:TimeSchedule`
+| `cim:GeographicalRegion`
 
 
 | CIM standard (perspective)
-| IEC61968 (Enterprise)
+| IEC61970 (Grid)
 
 
 
@@ -23,9 +23,7 @@
 
 == Class hierarchy
 * xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
-** xref::class/Document.adoc[`Document`]
-*** *`TimeSchedule`*
- **** xref::class/WorkTimeSchedule.adoc[`WorkTimeSchedule`]
+** *`GeographicalRegion`*
 
 
 == Slots
@@ -40,16 +38,16 @@ vars: {
     pad: 20
   }
 }
-TimeSchedule {
+GeographicalRegion {
   style {
-    fill: "#d1e7c2"
+    fill: "#eccfcb"
     shadow: true
   }
 }
 
 
 
-DateTimeInterval {
+SubGeographicalRegion {
   style {
     fill: "#eccfcb"
     shadow: true
@@ -68,10 +66,10 @@ Name {
 
 
 
-TimeSchedule -> DateTimeInterval: schedule_interval
+GeographicalRegion -> SubGeographicalRegion: regions
 
 
-TimeSchedule -> Name: names
+GeographicalRegion -> Name: names
 
 
 legend: "" {
@@ -127,20 +125,15 @@ legend: "" {
 |===
 | Name | Cardinality | Type | Description
 
-| <<schedule_interval,`schedule_interval`>>
-| 1
-| xref::class/DateTimeInterval.adoc[`DateTimeInterval`]
-| +++Schedule date and time interval.+++
+| <<regions,`regions`>>
+| 1..*
+| xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
+| +++All sub-geographical regions within this geographical region.+++
 
 | <<m_rid,`m_rid`>>
 | 0..1
 | https://w3id.org/linkml/String[`string`]
 | +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
-
-| <<type,`type`>>
-| 0..1
-| https://w3id.org/linkml/String[`string`]
-| +++Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).+++
 
 | <<description,`description`>>
 | 0..*
@@ -217,38 +210,18 @@ legend: "" {
 |===
 
 //[discrete]
-[#schedule_interval]
-=== `schedule_interval`
-+++Schedule date and time interval.+++
+[#regions]
+=== `regions`
++++All sub-geographical regions within this geographical region.+++
 
 [cols="h,4",width=65%]
 |===
 | URI
-| `cim:TimeSchedule.scheduleInterval`
+| `cim:GeographicalRegion.Regions`
 | Cardinality
-| 1
+| 1..*
 | Type
-| xref::class/DateTimeInterval.adoc[`DateTimeInterval`]
-
-
-|===
-
-//[discrete]
-[#type]
-=== `type`
-+++Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).+++
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:Document.type`
-| Cardinality
-| 0..1
-| Type
-| https://w3id.org/linkml/String[`string`]
-
-| Inherited from
-| xref::class/Document.adoc[`Document`]
+| xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
 
 
 |===

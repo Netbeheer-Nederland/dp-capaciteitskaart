@@ -69,8 +69,8 @@ enums:
     enum_uri: this:RAGKind
     permissible_values:
       transparant:
-        description: Transport capacity is available, without queue (*Transportcapaciteit
-          beschikbaar zonder wachtrij*).
+        description: Transport capacity is available, without queue ("Transportcapaciteit
+          beschikbaar zonder wachtrij").
         meaning: this:RAGKind.Transparant
       red:
         description: Shortage of transport capacity, with queue (Tekort aan Transportcapaciteit
@@ -119,82 +119,18 @@ classes:
     description: A single instance of a published dataset. The descriptions of these
       fields are taken from the Dublin Core Standard.
     attributes:
-      conforms_to:
-        description: ID for the schema used to create the instance data.
-        slot_uri: dct:conformsTo
-        required: true
-        multivalued: false
-      contributor:
-        description: An entity responsible for making contributions to the resource.
-        slot_uri: dct:contributor
-        required: false
-        multivalued: false
-      coverage:
-        description: The spatial or temporal topic of the resource, spatial applicability
-          of the resource, or jurisdiction under which the resource is relevant.
-        slot_uri: dct:coverage
-        required: false
-        multivalued: false
-      creator:
-        description: An entity responsible for making the resource.
-        slot_uri: dct:creator
-        required: true
-        multivalued: false
-      date:
-        description: A point of time associated with an event in the lifecycle of
-          the resource. For this implementation this will represent the date the data
-          set is valid from.
-        slot_uri: dct:date
-        range: date
-        required: false
-        multivalued: false
-      description:
-        description: An account of the resource.
-        slot_uri: dct:description
-        required: false
-        multivalued: false
-      format:
-        description: The file format of the resource.
-        slot_uri: dct:format
-        required: false
-        multivalued: false
       identifier:
-        description: An unambiguous reference to the resource within a given context.
         slot_uri: dct:identifier
+        multivalued: false
         required: true
+      conforms_to:
+        slot_uri: dct:conformsTo
         multivalued: false
-      issued:
-        description: Date of formal issuance of the resource.
-        slot_uri: dct:issued
-        range: date
         required: true
+      contact_point:
+        slot_uri: dct:contactPoint
         multivalued: false
-      language:
-        description: A language of the resource.
-        slot_uri: dct:language
-        required: false
-        multivalued: false
-      publisher:
-        description: An entity responsible for making the resource available.
-        slot_uri: dct:publisher
-        required: false
-        multivalued: false
-      rights:
-        description: Information about rights held in and over the resource.
-        slot_uri: dct:rights
-        required: false
-        multivalued: false
-      title:
-        description: A name given to the resource.
-        slot_uri: dct:title
-        required: false
-        multivalued: false
-      updated:
-        description: Type of information that was updated for this dataset.
-        slot_uri: this:HeatmapDataSet.updated
-        range: UpdateInfo
-        required: false
-        multivalued: true
+        required: true
       valid:
         description: A date range for the validity of a resource. This should
           be two dates, start & end. The first date is inclusive and the second
@@ -202,15 +138,49 @@ classes:
         slot_uri: dct:valid
         range: DateTimeInterval
         required: false
+      version:
+        slot_uri: owl:versionInfo
         multivalued: false
-      energy_areas:
-        description: A list of energy areas with heatmap data.
-        slot_uri: this:HeatmapDataSet.EnergyAreas
-        multivalued: true
-        range: EnergyArea
         required: true
+      updated:
+        description: Type of information that was updated for this dataset.
+        slot_uri: this:HeatmapDataSet.updated
+        range: UpdateInfo
+        required: false
+        multivalued: true
+      geographical_regions:
+        description: All instances of GeographicalRegions
+        slot_uri: this:HeatmapDataSet.GeographicalRegions
+        range: GeographicalRegion
+        multivalued: true
+        required: true
+        inlined_as_list: true
     class_uri: this:HeatmapDataSet
     tree_root: true
+  GeographicalRegion:
+    description: "A geographical region of a power system network model."
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: IdentifiedObject
+    attributes:
+      regions:
+        description: All sub-geographical regions within this geographical region.
+        slot_uri: cim:GeographicalRegion.Regions
+        range: SubGeographicalRegion
+        required: true
+        multivalued: true
+    class_uri: cim:GeographicalRegion
+  SubGeographicalRegion:
+    description: "A subset of a geographical region of a power system network model."
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: IdentifiedObject
+    attributes:
+      energy_areas:
+        description: Energy areas contained in the SubGeographicalRegion.
+        slot_uri: cim:SubGeographicalRegion.EnergyAreas
+        range: EnergyArea
+        required: true
+        multivalued: true
+    class_uri: cim:SubGeographicalRegion
   EnergyArea:
     description: Describes an area having energy production or consumption. Specializations
       are intended to support the load allocation function as typically required in
@@ -223,7 +193,7 @@ classes:
     is_a: IdentifiedObject
     attributes:
       short_code:
-        description: Short code name for EnergyArea. This is the *Uniek ID voedingsgebied*
+        description: Short code name for EnergyArea. This is the "Uniek ID voedingsgebied"
           in the previous implementation.
         slot_uri: this:EnergyArea.shortCode
         required: true
@@ -235,67 +205,11 @@ classes:
         range: EnergyAreaKind
         required: false
         multivalued: false
-      demand_requests_in_queue:
-        description: Number of demand requests for new grid connections and
-          capacity increases in queue. This is the *Aantal unieke
-          transportverzoeken in een wachtrij - afname* in the previous
-          implementation.
-        slot_uri: this:EnergyArea.demandRequestsInQueue
-        range: integer
-        required: false
-        multivalued: false
-        minimum_value: 0
-      demand_capacity_in_queue:
-        description: The contract value of demand requests not yet granted.
-          This is the *Wachtrij in capaciteit - afname* in the previous
-          implementation.
-        slot_uri: this:EnergyArea.demandCapacityInQueue
-        range: MegaW
-        required: false
-        multivalued: false
-        minimum_value: 0
-      demand_quoted_capacity:
-        description: Sum of all demand (in MW) currently quoted at the
-          EnergyArea.  This is the *Benodigde transportcapaciteit (in MW)
-          afname* in the previous implementation.
-        slot_uri: this:EnergyArea.demandQuotedCapacity
-        range: MegaW
-        required: false
-        multivalued: false
-        minimum_value: 0
-      demand_available_capacity:
-        description: The available demand capacity (in MW) at the EnergyArea.
-          The value should reflect the capacity a network operator would make
-          available to a connecting party. This is the *Aanwezige
-          transportcapaciteit (in MW) afname huidige jaar* in the previous
-          implementation.
-        slot_uri: this:EnergyArea.demandAvailableCapacity
-        range: MegaW
-        required: false
-        multivalued: false
-        minimum_value: 0
-      demand_forecast_capacity:
-        description: Sum of all demand (in MW) forecast for the current year at the
-          EnergyArea.
-        slot_uri: this:EnergyArea.demandForecastCapacity
-        range: MegaW
-        required: false
-        multivalued: false
-        minimum_value: 0
       demand_alleviation_year:
-        description: Year (e.g. *2028*) from which any capacity issues have been alleviated
+        description: Year (e.g. "2028") from which any capacity issues have been alleviated
           for the EnergyArea.
         slot_uri: this:EnergyArea.demandAlleviationYear
         range: integer
-        required: false
-        multivalued: false
-      demand_constraint:
-        description: A RAG definition of the demand constraints at the EnergyArea.
-          A utility should provide details on how this RAG status is calculated as
-          part of the accompanying documentation. Only specify this attribute if no
-          PostcodeArea-s are provided.
-        slot_uri: this:EnergyArea.demandConstraint
-        range: RAGKind
         required: false
         multivalued: false
       demand_energy_area_short_code:
@@ -305,63 +219,11 @@ classes:
         range: string
         required: false
         multivalued: false
-      generation_requests_in_queue:
-        description: Number of generation requests for new grid connections and capacity
-          increases in queue. This is the *Aantal unieke transportverzoeken in een
-          wachtrij - invoeding* in the previous implementation.
-        slot_uri: this:EnergyArea.generationRequestsInQueue
-        range: integer
-        required: false
-        multivalued: false
-        minimum_value: 0
-      generation_capacity_in_queue:
-        description: The contract value of generation requests not yet granted. This
-          is the *Wachtrij in capaciteit - invoeding* in the previous implementation.
-        slot_uri: this:EnergyArea.generationCapacityInQueue
-        range: MegaW
-        required: false
-        multivalued: false
-        minimum_value: 0
-      generation_quoted_capacity:
-        description: Sum of all currently quoted generation (in MW) at the EnergyArea.
-          This is the *Benodigde transportcapaciteit (in MW) invoeding* in the previous
-          implementation.
-        slot_uri: this:EnergyArea.generationQuotedCapacity
-        range: MegaW
-        required: false
-        multivalued: false
-        minimum_value: 0
-      generation_available_capacity:
-        description: Available generation capacity (in MW) at the EnergyArea. This
-          is the *Aanwezige transportcapaciteit (in MW) invoeding huidige jaar* in
-          the previous implementation.
-        slot_uri: this:EnergyArea.generationAvailableCapacity
-        range: MegaW
-        required: false
-        multivalued: false
-        minimum_value: 0
-      generation_forecast_capacity:
-        description: Sum of all forecast generation (in MW) for the current year at
-          the EnergyArea.
-        slot_uri: this:EnergyArea.generationForecastCapacity
-        range: MegaW
-        required: false
-        multivalued: false
-        minimum_value: 0
       generation_alleviation_year:
-        description: Year (e.g. *2028*) from which any capacity issues have been alleviated
+        description: Year (e.g. "2028") from which any capacity issues have been alleviated
           for the EnergyArea.
         slot_uri: this:EnergyArea.generationAlleviationYear
         range: integer
-        required: false
-        multivalued: false
-      generation_constraint:
-        description: A RAG definition of the generation constraints at the EnergyArea.
-          A utility should provide details on how this RAG status is calculated as
-          part of the accompanying documentation. Only specify this attribute if no
-          PostcodeArea-s are provided.
-        slot_uri: this:EnergyArea.generationConstraint
-        range: RAGKind
         required: false
         multivalued: false
       generation_energy_area_short_code:
@@ -377,6 +239,12 @@ classes:
         multivalued: true
         range: Work
         required: false
+      area_capacity:
+        description:
+        slot_uri: this:EnergyArea.AreaCapacity
+        multivalued: true
+        range: AreaCapacity
+        required: true
       postcode_areas:
         description: Postcode Areas serviced by this EnergyArea.
         slot_uri: this:EnergyArea.PostcodeAreas
@@ -384,6 +252,140 @@ classes:
         range: PostcodeArea
         required: false
     class_uri: cim:EnergyArea
+  AreaCapacity:
+    description: Capacity information for a specific EnergyArea.
+    is_a: IdentifiedObject
+    attributes:
+      capacity_interval:
+        description: Capacity information date and time interval. Allows
+          providing multiple points in time to provide capacity information.
+        slot_uri: this:AreaCapacity.capacity_interval
+        range: DateTimeInterval
+        required: true
+        multivalued: false
+      demand_requests_in_queue:
+        description: Number of demand requests for new grid connections and
+          capacity increases in queue. This is the "Aantal unieke
+          transportverzoeken in een wachtrij - afname" in the previous
+          implementation.
+        slot_uri: this:EnergyArea.demandRequestsInQueue
+        range: integer
+        required: false
+        multivalued: false
+        minimum_value: 0
+      demand_capacity_in_queue:
+        description: The contract value of demand requests not yet granted.
+          This is the "Wachtrij in capaciteit - afname" in the previous
+          implementation.
+        slot_uri: this:EnergyArea.demandCapacityInQueue
+        range: MegaW
+        required: false
+        multivalued: false
+        minimum_value: 0
+      demand_quoted_capacity:
+        description: Sum of all demand (in MW) currently quoted at the
+          EnergyArea.  This is the "Benodigde transportcapaciteit (in MW)
+          afname" in the previous implementation.
+        slot_uri: this:EnergyArea.demandQuotedCapacity
+        range: MegaW
+        required: false
+        multivalued: false
+        minimum_value: 0
+      demand_available_capacity:
+        description: The available demand capacity (in MW) at the EnergyArea.
+          The value should reflect the capacity a network operator would make
+          available to a connecting party. This is the "Aanwezige
+          transportcapaciteit (in MW) afname huidige jaar" in the previous
+          implementation.
+        slot_uri: this:EnergyArea.demandAvailableCapacity
+        range: MegaW
+        required: false
+        multivalued: false
+        minimum_value: 0
+      demand_forecast_capacity:
+        description: Sum of all demand (in MW) forecast for the current year at the
+          EnergyArea.
+        slot_uri: this:EnergyArea.demandForecastCapacity
+        range: MegaW
+        required: false
+        multivalued: false
+        minimum_value: 0
+      demand_tso_limit:
+        description: TSO EnergyArea limit for demand (in MW).
+        slot_uri: this:EnergyArea.demandTSOLimit
+        range: MegaW
+        required: false
+        multivalued: false
+        minimum_value: 0
+      demand_constraint:
+        description: A RAG definition of the demand constraints at the EnergyArea.
+          A utility should provide details on how this RAG status is calculated as
+          part of the accompanying documentation. Only specify this attribute if no
+          PostcodeArea-s are provided.
+        slot_uri: this:EnergyArea.demandConstraint
+        range: RAGKind
+        required: false
+        multivalued: false
+      generation_requests_in_queue:
+        description: Number of generation requests for new grid connections and capacity
+          increases in queue. This is the "Aantal unieke transportverzoeken in een
+          wachtrij - invoeding" in the previous implementation.
+        slot_uri: this:EnergyArea.generationRequestsInQueue
+        range: integer
+        required: false
+        multivalued: false
+        minimum_value: 0
+      generation_capacity_in_queue:
+        description: The contract value of generation requests not yet granted. This
+          is the "Wachtrij in capaciteit - invoeding" in the previous implementation.
+        slot_uri: this:EnergyArea.generationCapacityInQueue
+        range: MegaW
+        required: false
+        multivalued: false
+        minimum_value: 0
+      generation_quoted_capacity:
+        description: Sum of all currently quoted generation (in MW) at the EnergyArea.
+          This is the "Benodigde transportcapaciteit (in MW) invoeding" in the previous
+          implementation.
+        slot_uri: this:EnergyArea.generationQuotedCapacity
+        range: MegaW
+        required: false
+        multivalued: false
+        minimum_value: 0
+      generation_available_capacity:
+        description: Available generation capacity (in MW) at the EnergyArea. This
+          is the "Aanwezige transportcapaciteit (in MW) invoeding huidige jaar" in
+          the previous implementation.
+        slot_uri: this:EnergyArea.generationAvailableCapacity
+        range: MegaW
+        required: false
+        multivalued: false
+        minimum_value: 0
+      generation_forecast_capacity:
+        description: Sum of all forecast generation (in MW) for the current year at
+          the EnergyArea.
+        slot_uri: this:EnergyArea.generationForecastCapacity
+        range: MegaW
+        required: false
+        multivalued: false
+        minimum_value: 0
+      generation_tso_limit:
+        description: TSO EnergyArea limit for generation (in MW).
+        slot_uri: this:EnergyArea.generationTSOLimit
+        range: MegaW
+        required: false
+        multivalued: false
+        minimum_value: 0
+      generation_constraint:
+        description: A RAG definition of the generation constraints at the EnergyArea.
+          A utility should provide details on how this RAG status is calculated as
+          part of the accompanying documentation. Only specify this attribute if no
+          PostcodeArea-s are provided.
+        slot_uri: this:EnergyArea.generationConstraint
+        range: RAGKind
+        required: false
+        multivalued: false
+    class_uri: this:AreaCapacity
   PostcodeArea:
     description: A geographic region that is defined by the initial letters or digits
       of a postcode.
@@ -397,8 +399,8 @@ classes:
         required: true
         multivalued: false
       substation_short_code:
-        description: TenneT substation (*Onderstation*) which feeds this
-          PostcodeArea. Use the *ck.EnergyArea.short_code* from the TenneT
+        description: TenneT substation ("Onderstation") which feeds this
+          PostcodeArea. Use the "ck.EnergyArea.short_code" from the TenneT
           dataset to relate the PostcodeArea.
         slot_uri: this:PostcodeArea.substationShortCode
         required: false
@@ -406,8 +408,8 @@ classes:
       demand_constraint:
         description: A RAG definition of the demand constraints at the EnergyArea.
           A utility should provide details on how this RAG status is calculated as
-          part of the accompanying documentation. This is the *Kleurcodering van het
-          postcodegebied voor afname* in the previous implementation.
+          part of the accompanying documentation. This is the "Kleurcodering van het
+          postcodegebied voor afname" in the previous implementation.
         slot_uri: this:PostcodeArea.demandConstraint
         range: RAGKind
         required: true
@@ -415,8 +417,8 @@ classes:
       generation_constraint:
         description: A RAG definition of the generation constraints at the EnergyArea.
           A utility should provide details on how this RAG status is calculated as
-          part of the accompanying documentation. This is the *Kleurcodering van het
-          postcodegebied voor opwek* in the previous implementation.
+          part of the accompanying documentation. This is the "Kleurcodering van het
+          postcodegebied voor opwek" in the previous implementation.
         slot_uri: this:PostcodeArea.generationConstraint
         range: RAGKind
         required: true
@@ -424,13 +426,13 @@ classes:
     class_uri: this:PostcodeArea
   Work:
     description: Document used to request, initiate, track and record work. Use the
-      *description* attribute to add additional information about this *Work*. This
-      is *Toelichting bijzonderheden rondom planning* in the previous implementation.
+      "description" attribute to add additional information about this "Work". This
+      is "Toelichting bijzonderheden rondom planning" in the previous implementation.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
     is_a: BaseWork
     attributes:
       project_name:
-        description: Name of the project this work belongs to. This is the *Projectnaam*
+        description: Name of the project this work belongs to. This is the "Projectnaam"
           in the previous implementation.
         slot_uri: this:Work.projectName
         range: string
@@ -505,19 +507,21 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Domain
     attributes:
       end:
-        description: End date and time of this interval. The end date and time where
-          the interval is defined up to, but excluded. Follows the international date
-          format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known,
-          use *01* as day. This is the *Beoogde in bedrijfsname* in the previous implementation.
+        description: End date and time of this interval. The end date and time
+          where the interval is defined up to, but excluded. Follows the
+          international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a
+          specific month is known, use "01" as day. This is the "Beoogde in
+          bedrijfsname" in the previous implementation.
         slot_uri: cim:DateTimeInterval.end
         range: date
         required: false
         multivalued: false
       start:
-        description: Start date and time of this interval. The start date and time
-          is included in the defined interval. Follows the international date format
-          of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use
-          *01* as day. This is the *Startdatum* in the previous implementation.
+        description: Start date and time of this interval. The start date and
+          time is included in the defined interval. Follows the international
+          date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific
+          month is known, use "01" as day. This is the "Startdatum" in the
+          previous implementation.
         slot_uri: cim:DateTimeInterval.start
         range: date
         required: false
@@ -564,7 +568,7 @@ classes:
       description:
         description: The description is a free human readable text describing or naming
           the object. It may be non unique and may not correlate to a naming hierarchy.
-          This is the *Herkenbare naam voedingsgebied* in the previous implementation.
+          This is the "Herkenbare naam voedingsgebied" in the previous implementation.
         slot_uri: cim:IdentifiedObject.description
         range: string
       m_rid:

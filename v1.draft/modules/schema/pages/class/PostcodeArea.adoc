@@ -113,12 +113,12 @@ legend: "" {
 | <<demand_constraint,`demand_constraint`>>
 | 1
 | xref::enumeration/RAGKind.adoc[`RAGKind`]
-| +++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor afname* in the previous implementation.+++
+| +++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the "Kleurcodering van het postcodegebied voor afname" in the previous implementation.+++
 
 | <<generation_constraint,`generation_constraint`>>
 | 1
 | xref::enumeration/RAGKind.adoc[`RAGKind`]
-| +++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor opwek* in the previous implementation.+++
+| +++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the "Kleurcodering van het postcodegebied voor opwek" in the previous implementation.+++
 
 | <<postcode,`postcode`>>
 | 1
@@ -128,7 +128,7 @@ legend: "" {
 | <<substation_short_code,`substation_short_code`>>
 | 0..1
 | n/a
-| +++TenneT substation (*Onderstation*) which feeds this PostcodeArea. Use the *ck.EnergyArea.short_code* from the TenneT dataset to relate the PostcodeArea.+++
+| +++TenneT substation ("Onderstation") which feeds this PostcodeArea. Use the "ck.EnergyArea.short_code" from the TenneT dataset to relate the PostcodeArea.+++
 
 | <<m_rid,`m_rid`>>
 | 0..1
@@ -138,7 +138,7 @@ legend: "" {
 | <<description,`description`>>
 | 0..*
 | https://w3id.org/linkml/String[`string`]
-| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.+++
+| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the "Herkenbare naam voedingsgebied" in the previous implementation.+++
 
 | <<names,`names`>>
 | 0..*
@@ -152,7 +152,7 @@ legend: "" {
 //[discrete]
 [#demand_constraint]
 === `demand_constraint`
-+++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor afname* in the previous implementation.+++
++++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the "Kleurcodering van het postcodegebied voor afname" in the previous implementation.+++
 
 [cols="h,4",width=65%]
 |===
@@ -169,7 +169,7 @@ legend: "" {
 //[discrete]
 [#description]
 === `description`
-+++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.+++
++++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the "Herkenbare naam voedingsgebied" in the previous implementation.+++
 
 [cols="h,4",width=65%]
 |===
@@ -189,7 +189,7 @@ legend: "" {
 //[discrete]
 [#generation_constraint]
 === `generation_constraint`
-+++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the *Kleurcodering van het postcodegebied voor opwek* in the previous implementation.+++
++++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the "Kleurcodering van het postcodegebied voor opwek" in the previous implementation.+++
 
 [cols="h,4",width=65%]
 |===
@@ -263,7 +263,7 @@ legend: "" {
 //[discrete]
 [#substation_short_code]
 === `substation_short_code`
-+++TenneT substation (*Onderstation*) which feeds this PostcodeArea. Use the *ck.EnergyArea.short_code* from the TenneT dataset to relate the PostcodeArea.+++
++++TenneT substation ("Onderstation") which feeds this PostcodeArea. Use the "ck.EnergyArea.short_code" from the TenneT dataset to relate the PostcodeArea.+++
 
 [cols="h,4",width=65%]
 |===

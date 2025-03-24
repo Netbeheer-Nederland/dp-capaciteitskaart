@@ -145,7 +145,7 @@ legend: "" {
 | <<description,`description`>>
 | 0..*
 | https://w3id.org/linkml/String[`string`]
-| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.+++
+| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the "Herkenbare naam voedingsgebied" in the previous implementation.+++
 
 | <<names,`names`>>
 | 0..*
@@ -159,7 +159,7 @@ legend: "" {
 //[discrete]
 [#description]
 === `description`
-+++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the *Herkenbare naam voedingsgebied* in the previous implementation.+++
++++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the "Herkenbare naam voedingsgebied" in the previous implementation.+++
 
 [cols="h,4",width=65%]
 |===
