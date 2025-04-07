@@ -2,77 +2,77 @@
 * Information model
 ** xref::index.adoc[Index]
 ** Classes
-*** xref::class/HeatmapDataSet.adoc[`HeatmapDataSet` (root)]
+*** xref::class/HeatmapDataSet.adoc[HeatmapDataSet (root)]
 
-*** xref::class/AreaCapacity.adoc[`AreaCapacity`]
-
-
-
-*** xref::class/BaseWork.adoc[`BaseWork`]
+*** xref::class/AreaCapacity.adoc[AreaCapacity]
 
 
 
-*** xref::class/DateTimeInterval.adoc[`DateTimeInterval`]
+*** xref::class/BaseWork.adoc[BaseWork]
 
 
 
-*** xref::class/Document.adoc[`Document`]
+*** xref::class/DateTimeInterval.adoc[DateTimeInterval]
 
 
 
-*** xref::class/EnergyArea.adoc[`EnergyArea`]
+*** xref::class/Document.adoc[Document]
 
 
 
-*** xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
+*** xref::class/EnergyArea.adoc[EnergyArea]
+
+
+
+*** xref::class/GeographicalRegion.adoc[GeographicalRegion]
 
 
 
 
-*** xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+*** xref::class/IdentifiedObject.adoc[IdentifiedObject]
 
 
 
-*** xref::class/Name.adoc[`Name`]
+*** xref::class/Name.adoc[Name]
 
 
 
-*** xref::class/NameType.adoc[`NameType`]
+*** xref::class/NameType.adoc[NameType]
 
 
 
-*** xref::class/NameTypeAuthority.adoc[`NameTypeAuthority`]
+*** xref::class/NameTypeAuthority.adoc[NameTypeAuthority]
 
 
 
-*** xref::class/PostcodeArea.adoc[`PostcodeArea`]
+*** xref::class/PostcodeArea.adoc[PostcodeArea]
 
 
 
-*** xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
+*** xref::class/SubGeographicalRegion.adoc[SubGeographicalRegion]
 
 
 
-*** xref::class/TimeSchedule.adoc[`TimeSchedule`]
+*** xref::class/TimeSchedule.adoc[TimeSchedule]
 
 
 
-*** xref::class/UpdateInfo.adoc[`UpdateInfo`]
+*** xref::class/UpdateInfo.adoc[UpdateInfo]
 
 
 
-*** xref::class/Work.adoc[`Work`]
+*** xref::class/Work.adoc[Work]
 
 
 
-*** xref::class/WorkTimeSchedule.adoc[`WorkTimeSchedule`]
+*** xref::class/WorkTimeSchedule.adoc[WorkTimeSchedule]
 
 
 
 
 ** Enumerations
-*** xref::enumeration/EnergyAreaKind.adoc[`EnergyAreaKind`]
-*** xref::enumeration/RAGKind.adoc[`RAGKind`]
-*** xref::enumeration/UpdateInfoKind.adoc[`UpdateInfoKind`]
-*** xref::enumeration/WorkStatusKind.adoc[`WorkStatusKind`]
-*** xref::enumeration/WorkTimeScheduleKind.adoc[`WorkTimeScheduleKind`]
+*** xref::enumeration/EnergyAreaKind.adoc[EnergyAreaKind]
+*** xref::enumeration/RAGKind.adoc[RAGKind]
+*** xref::enumeration/UpdateInfoKind.adoc[UpdateInfoKind]
+*** xref::enumeration/WorkStatusKind.adoc[WorkStatusKind]
+*** xref::enumeration/WorkTimeScheduleKind.adoc[WorkTimeScheduleKind]

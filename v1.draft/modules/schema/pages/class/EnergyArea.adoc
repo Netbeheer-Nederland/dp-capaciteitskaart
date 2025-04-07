@@ -162,69 +162,93 @@ legend: "" {
 ----
 
 
-[cols="3,1,3,6",width=100%]
+[cols="1,1,2,1",width=100%]
 |===
-| Name | Cardinality | Type | Description
-
-| <<short_code,`short_code`>>
-| 1
-| n/a
-| +++Short code name for EnergyArea. This is the "Uniek ID voedingsgebied" in the previous implementation.+++
+| Name | Type | Description | Inherited from
 
 | <<area_capacity,`area_capacity`>>
-| 1..*
-| xref::class/AreaCapacity.adoc[`AreaCapacity`]
-| n/a
+//| [[slots_table.area_capacity]]<<area_capacity,`area_capacity`>>
+| 1..* +
+xref::class/AreaCapacity.adoc[`AreaCapacity`]
+| _n/a_
+| _n/a_
 
 | <<demand_alleviation_year,`demand_alleviation_year`>>
-| 0..1
-| https://w3id.org/linkml/Integer[`integer`]
+//| [[slots_table.demand_alleviation_year]]<<demand_alleviation_year,`demand_alleviation_year`>>
+| 0..1 +
+https://w3id.org/linkml/Integer[`integer`]
 | +++Year (e.g. "2028") from which any capacity issues have been alleviated for the EnergyArea.+++
+| _n/a_
 
 | <<demand_energy_area_short_code,`demand_energy_area_short_code`>>
-| 0..1
-| https://w3id.org/linkml/String[`string`]
+//| [[slots_table.demand_energy_area_short_code]]<<demand_energy_area_short_code,`demand_energy_area_short_code`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
 | +++Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.+++
+| _n/a_
 
 | <<generation_alleviation_year,`generation_alleviation_year`>>
-| 0..1
-| https://w3id.org/linkml/Integer[`integer`]
+//| [[slots_table.generation_alleviation_year]]<<generation_alleviation_year,`generation_alleviation_year`>>
+| 0..1 +
+https://w3id.org/linkml/Integer[`integer`]
 | +++Year (e.g. "2028") from which any capacity issues have been alleviated for the EnergyArea.+++
+| _n/a_
 
 | <<generation_energy_area_short_code,`generation_energy_area_short_code`>>
-| 0..1
-| https://w3id.org/linkml/String[`string`]
+//| [[slots_table.generation_energy_area_short_code]]<<generation_energy_area_short_code,`generation_energy_area_short_code`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
 | +++Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.+++
-
-| <<type,`type`>>
-| 0..1
-| xref::enumeration/EnergyAreaKind.adoc[`EnergyAreaKind`]
-| +++Type of EnergyArea, either a regular energy area, or congestion area. Only the TSO dataset can define congestion areas.+++
+| _n/a_
 
 | <<postcode_areas,`postcode_areas`>>
-| 0..*
-| xref::class/PostcodeArea.adoc[`PostcodeArea`]
+//| [[slots_table.postcode_areas]]<<postcode_areas,`postcode_areas`>>
+| 0..* +
+xref::class/PostcodeArea.adoc[`PostcodeArea`]
 | +++Postcode Areas serviced by this EnergyArea.+++
+| _n/a_
+
+| <<short_code,`short_code`>>
+//| [[slots_table.short_code]]<<short_code,`short_code`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| +++Short code name for EnergyArea. This is the "Uniek ID voedingsgebied" in the previous implementation.+++
+| _n/a_
+
+| <<type,`type`>>
+//| [[slots_table.type]]<<type,`type`>>
+| 0..1 +
+xref::enumeration/EnergyAreaKind.adoc[`EnergyAreaKind`]
+| +++Type of EnergyArea, either a regular energy area, or congestion area. Only the TSO dataset can define congestion areas.+++
+| _n/a_
 
 | <<works,`works`>>
-| 0..*
-| xref::class/Work.adoc[`Work`]
+//| [[slots_table.works]]<<works,`works`>>
+| 0..* +
+xref::class/Work.adoc[`Work`]
 | +++All the works performed for this EnergyArea.+++
-
-| <<m_rid,`m_rid`>>
-| 0..1
-| https://w3id.org/linkml/String[`string`]
-| +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
+| _n/a_
 
 | <<description,`description`>>
-| 0..*
-| https://w3id.org/linkml/String[`string`]
-| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the "Herkenbare naam voedingsgebied" in the previous implementation.+++
+//| [[slots_table.description]]<<description,`description`>>
+| 0..* +
+https://w3id.org/linkml/String[`string`]
+| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to...+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+| <<m_rid,`m_rid`>>
+//| [[slots_table.m_rid]]<<m_rid,`m_rid`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 
 | <<names,`names`>>
-| 0..*
-| xref::class/Name.adoc[`Name`]
+//| [[slots_table.names]]<<names,`names`>>
+| 0..* +
+xref::class/Name.adoc[`Name`]
 | +++All names of this identified object.+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 |===
 
 '''
@@ -233,6 +257,7 @@ legend: "" {
 //[discrete]
 [#area_capacity]
 === `area_capacity`
+
 
 
 [cols="h,4",width=65%]
@@ -247,10 +272,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.area_capacity,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#demand_alleviation_year]
 === `demand_alleviation_year`
 +++Year (e.g. "2028") from which any capacity issues have been alleviated for the EnergyArea.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -264,10 +298,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.demand_alleviation_year,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#demand_energy_area_short_code]
 === `demand_energy_area_short_code`
 +++Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -281,10 +324,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.demand_energy_area_short_code,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#description]
 === `description`
 +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the "Herkenbare naam voedingsgebied" in the previous implementation.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -301,10 +353,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.description,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#generation_alleviation_year]
 === `generation_alleviation_year`
 +++Year (e.g. "2028") from which any capacity issues have been alleviated for the EnergyArea.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -318,10 +379,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.generation_alleviation_year,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#generation_energy_area_short_code]
 === `generation_energy_area_short_code`
 +++Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -335,10 +405,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.generation_energy_area_short_code,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#m_rid]
 === `m_rid`
 +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -355,10 +434,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.m_rid,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#names]
 === `names`
 +++All names of this identified object.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -375,10 +463,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.names,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#postcode_areas]
 === `postcode_areas`
 +++Postcode Areas serviced by this EnergyArea.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -392,10 +489,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.postcode_areas,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#short_code]
 === `short_code`
 +++Short code name for EnergyArea. This is the "Uniek ID voedingsgebied" in the previous implementation.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -404,15 +510,24 @@ legend: "" {
 | Cardinality
 | 1
 | Type
-| n/a
+| https://w3id.org/linkml/String[`string`]
 
 
 |===
+
+////
+[.text-left]
+--
+<<slots_table.short_code,&#10548;>>
+--
+////
+
 
 //[discrete]
 [#type]
 === `type`
 +++Type of EnergyArea, either a regular energy area, or congestion area. Only the TSO dataset can define congestion areas.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -426,10 +541,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.type,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#works]
 === `works`
 +++All the works performed for this EnergyArea.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -443,4 +567,28 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.works,&#10548;>>
+--
+////
+
+
+
+
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`] | xref::class/SubGeographicalRegion.adoc#energy_areas[`energy_areas`]
+
+
+|===
 

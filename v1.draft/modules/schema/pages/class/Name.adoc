@@ -108,19 +108,23 @@ legend: "" {
 ----
 
 
-[cols="3,1,3,6",width=100%]
+[cols="1,1,2,1",width=100%]
 |===
-| Name | Cardinality | Type | Description
-
-| <<name_type,`name_type`>>
-| 1
-| xref::class/NameType.adoc[`NameType`]
-| +++Type of this name.+++
+| Name | Type | Description | Inherited from
 
 | <<name,`name`>>
-| 0..1
-| https://w3id.org/linkml/String[`string`]
+//| [[slots_table.name]]<<name,`name`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
 | +++Any free text that name the object.+++
+| _n/a_
+
+| <<name_type,`name_type`>>
+//| [[slots_table.name_type]]<<name_type,`name_type`>>
+| 1 +
+xref::class/NameType.adoc[`NameType`]
+| +++Type of this name.+++
+| _n/a_
 |===
 
 '''
@@ -130,6 +134,7 @@ legend: "" {
 [#name]
 === `name`
 +++Any free text that name the object.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -143,10 +148,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.name,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#name_type]
 === `name_type`
 +++Type of this name.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -160,4 +174,28 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.name_type,&#10548;>>
+--
+////
+
+
+
+
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`] | xref::class/IdentifiedObject.adoc#names[`names`]
+
+
+|===
 

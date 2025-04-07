@@ -106,44 +106,58 @@ legend: "" {
 ----
 
 
-[cols="3,1,3,6",width=100%]
+[cols="1,1,2,1",width=100%]
 |===
-| Name | Cardinality | Type | Description
+| Name | Type | Description | Inherited from
 
 | <<demand_constraint,`demand_constraint`>>
-| 1
-| xref::enumeration/RAGKind.adoc[`RAGKind`]
-| +++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the "Kleurcodering van het postcodegebied voor afname" in the previous implementation.+++
+//| [[slots_table.demand_constraint]]<<demand_constraint,`demand_constraint`>>
+| 1 +
+xref::enumeration/RAGKind.adoc[`RAGKind`]
+| +++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is...+++
+| _n/a_
 
 | <<generation_constraint,`generation_constraint`>>
-| 1
-| xref::enumeration/RAGKind.adoc[`RAGKind`]
-| +++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the "Kleurcodering van het postcodegebied voor opwek" in the previous implementation.+++
+//| [[slots_table.generation_constraint]]<<generation_constraint,`generation_constraint`>>
+| 1 +
+xref::enumeration/RAGKind.adoc[`RAGKind`]
+| +++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is...+++
+| _n/a_
 
 | <<postcode,`postcode`>>
-| 1
-| n/a
-| +++Identifier for the postcode area. Contain four (4) numbers, followed by two (2) letters, uppercase. No spaces between the numbers and letters, i.e. "1234AB".+++
+//| [[slots_table.postcode]]<<postcode,`postcode`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| +++Identifier for the postcode area. Contain four (4) numbers, followed by two (2) letters, uppercase. No spaces between the...+++
+| _n/a_
 
 | <<substation_short_code,`substation_short_code`>>
-| 0..1
-| n/a
-| +++TenneT substation ("Onderstation") which feeds this PostcodeArea. Use the "ck.EnergyArea.short_code" from the TenneT dataset to relate the PostcodeArea.+++
-
-| <<m_rid,`m_rid`>>
-| 0..1
-| https://w3id.org/linkml/String[`string`]
-| +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
+//| [[slots_table.substation_short_code]]<<substation_short_code,`substation_short_code`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++TenneT substation ("Onderstation") which feeds this PostcodeArea. Use the "ck.EnergyArea.short_code" from the TenneT dataset...+++
+| _n/a_
 
 | <<description,`description`>>
-| 0..*
-| https://w3id.org/linkml/String[`string`]
-| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the "Herkenbare naam voedingsgebied" in the previous implementation.+++
+//| [[slots_table.description]]<<description,`description`>>
+| 0..* +
+https://w3id.org/linkml/String[`string`]
+| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to...+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+| <<m_rid,`m_rid`>>
+//| [[slots_table.m_rid]]<<m_rid,`m_rid`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 
 | <<names,`names`>>
-| 0..*
-| xref::class/Name.adoc[`Name`]
+//| [[slots_table.names]]<<names,`names`>>
+| 0..* +
+xref::class/Name.adoc[`Name`]
 | +++All names of this identified object.+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 |===
 
 '''
@@ -153,6 +167,7 @@ legend: "" {
 [#demand_constraint]
 === `demand_constraint`
 +++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the "Kleurcodering van het postcodegebied voor afname" in the previous implementation.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -166,10 +181,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.demand_constraint,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#description]
 === `description`
 +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the "Herkenbare naam voedingsgebied" in the previous implementation.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -186,10 +210,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.description,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#generation_constraint]
 === `generation_constraint`
 +++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the "Kleurcodering van het postcodegebied voor opwek" in the previous implementation.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -203,10 +236,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.generation_constraint,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#m_rid]
 === `m_rid`
 +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -223,10 +265,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.m_rid,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#names]
 === `names`
 +++All names of this identified object.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -243,10 +294,19 @@ legend: "" {
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.names,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#postcode]
 === `postcode`
 +++Identifier for the postcode area. Contain four (4) numbers, followed by two (2) letters, uppercase. No spaces between the numbers and letters, i.e. "1234AB".+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -255,15 +315,24 @@ legend: "" {
 | Cardinality
 | 1
 | Type
-| n/a
+| https://w3id.org/linkml/String[`string`]
 
 
 |===
+
+////
+[.text-left]
+--
+<<slots_table.postcode,&#10548;>>
+--
+////
+
 
 //[discrete]
 [#substation_short_code]
 === `substation_short_code`
 +++TenneT substation ("Onderstation") which feeds this PostcodeArea. Use the "ck.EnergyArea.short_code" from the TenneT dataset to relate the PostcodeArea.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -272,9 +341,33 @@ legend: "" {
 | Cardinality
 | 0..1
 | Type
-| n/a
+| https://w3id.org/linkml/String[`string`]
 
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.substation_short_code,&#10548;>>
+--
+////
+
+
+
+
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/EnergyArea.adoc[`EnergyArea`] | xref::class/EnergyArea.adoc#postcode_areas[`postcode_areas`]
+
+
+|===
 

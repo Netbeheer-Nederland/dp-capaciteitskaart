@@ -27,19 +27,23 @@
 
 
 
-[cols="3,1,3,6",width=100%]
+[cols="1,1,2,1",width=100%]
 |===
-| Name | Cardinality | Type | Description
+| Name | Type | Description | Inherited from
 
 | <<date,`date`>>
-| 1
-| https://w3id.org/linkml/Date[`date`]
+//| [[slots_table.date]]<<date,`date`>>
+| 1 +
+https://w3id.org/linkml/Date[`date`]
 | +++Date of the update.+++
+| _n/a_
 
 | <<type,`type`>>
-| 1
-| xref::enumeration/UpdateInfoKind.adoc[`UpdateInfoKind`]
+//| [[slots_table.type]]<<type,`type`>>
+| 1 +
+xref::enumeration/UpdateInfoKind.adoc[`UpdateInfoKind`]
 | +++Type of the update.+++
+| _n/a_
 |===
 
 '''
@@ -49,6 +53,7 @@
 [#date]
 === `date`
 +++Date of the update.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -62,10 +67,19 @@
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.date,&#10548;>>
+--
+////
+
+
 //[discrete]
 [#type]
 === `type`
 +++Type of the update.+++
+
 
 [cols="h,4",width=65%]
 |===
@@ -79,4 +93,28 @@
 
 |===
 
+////
+[.text-left]
+--
+<<slots_table.type,&#10548;>>
+--
+////
+
+
+
+
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/HeatmapDataSet.adoc[`HeatmapDataSet`] | xref::class/HeatmapDataSet.adoc#updated[`updated`]
+
+
+|===
 

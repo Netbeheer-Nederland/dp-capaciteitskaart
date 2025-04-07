@@ -51,3 +51,18 @@
 | `this:UpdateInfoKind.WR`
 | n/a
 |===
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/UpdateInfo.adoc[`UpdateInfo`] | xref::class/UpdateInfo.adoc#type[`type`]
+
+
+|===
+

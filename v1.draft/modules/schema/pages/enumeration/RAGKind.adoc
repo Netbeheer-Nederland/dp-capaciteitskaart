@@ -43,3 +43,22 @@
 | `this:RAGKind.Yellow`
 | n/a
 |===
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/AreaCapacity.adoc[`AreaCapacity`] | xref::class/AreaCapacity.adoc#generation_constraint[`generation_constraint`]
+
+
+
+| xref::class/PostcodeArea.adoc[`PostcodeArea`] | xref::class/PostcodeArea.adoc#generation_constraint[`generation_constraint`]
+
+
+|===
+

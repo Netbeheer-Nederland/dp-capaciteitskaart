@@ -35,3 +35,18 @@
 | `this:EnergyAreaKind.energyArea`
 | n/a
 |===
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/EnergyArea.adoc[`EnergyArea`] | xref::class/EnergyArea.adoc#type[`type`]
+
+
+|===
+
