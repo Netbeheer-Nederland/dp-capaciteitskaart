@@ -201,7 +201,7 @@
             "description": "Interval between two date and time points, where the interval includes the start time but excludes end time.",
             "properties": {
                 "end": {
-                    "description": "End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use \"01\" as day. This is the \"Beoogde in bedrijfsname\" in the previous implementation.",
+                    "description": "End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use \"01\" as day.",
                     "format": "date",
                     "type": [
                         "string",
@@ -218,7 +218,7 @@
                     ]
                 },
                 "start": {
-                    "description": "Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use \"01\" as day. This is the \"Startdatum\" in the previous implementation.",
+                    "description": "Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use \"01\" as day.",
                     "format": "date",
                     "type": [
                         "string",

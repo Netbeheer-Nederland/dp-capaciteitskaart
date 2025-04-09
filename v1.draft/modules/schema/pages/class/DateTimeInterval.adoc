@@ -69,7 +69,7 @@ https://w3id.org/linkml/Integer[`integer`]
 //[discrete]
 [#end]
 === `end`
-+++End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use "01" as day. This is the "Beoogde in bedrijfsname" in the previous implementation.+++
++++End date and time of this interval. The end date and time where the interval is defined up to, but excluded. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use "01" as day.+++
 
 
 [cols="h,4",width=65%]
@@ -121,7 +121,7 @@ https://w3id.org/linkml/Integer[`integer`]
 //[discrete]
 [#start]
 === `start`
-+++Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use "01" as day. This is the "Startdatum" in the previous implementation.+++
++++Start date and time of this interval. The start date and time is included in the defined interval. Follows the international date format of YYYY-MM-DD, i.e. 2024-12-31. When only a specific month is known, use "01" as day.+++
 
 
 [cols="h,4",width=65%]
