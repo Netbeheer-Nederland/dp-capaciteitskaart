@@ -17,6 +17,7 @@ prefixes:
   nl: http://iec.ch/TC57/CIM100-Netherlands#
   owl: http://www.w3.org/2002/07/owl#
   skos: http://www.w3.org/2004/02/skos/core#
+  unit: http://qudt.org/vocab/unit/
   this: http://data.netbeheernederland.nl/dp-capaciteitskaart/def#
 types:
   MegaW:
