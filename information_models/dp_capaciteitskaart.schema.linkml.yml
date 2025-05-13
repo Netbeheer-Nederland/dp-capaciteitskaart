@@ -251,6 +251,13 @@ classes:
         multivalued: true
         range: PostcodeArea
         required: false
+      congestion_url:
+        description: URL for additional (congestion) information for this
+          EnergyArea.
+        range: string
+        slot_uri: this:EnergyArea.congestionURL
+        required: false
+        multivalued: false
     class_uri: cim:EnergyArea
   AreaCapacity:
     description: Capacity information for a specific EnergyArea.
