@@ -285,6 +285,13 @@
                     },
                     "type": "array"
                 },
+                "congestion_url": {
+                    "description": "URL for additional (congestion) information for this EnergyArea.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "demand_alleviation_year": {
                     "description": "Year (e.g. \"2028\") from which any capacity issues have been alleviated for the EnergyArea.",
                     "type": [

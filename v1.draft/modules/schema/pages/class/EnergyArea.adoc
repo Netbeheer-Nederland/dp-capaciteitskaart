@@ -173,6 +173,13 @@ xref::class/AreaCapacity.adoc[`AreaCapacity`]
 | _n/a_
 | _n/a_
 
+| <<congestion_url,`congestion_url`>>
+//| [[slots_table.congestion_url]]<<congestion_url,`congestion_url`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++URL for additional (congestion) information for this EnergyArea.+++
+| _n/a_
+
 | <<demand_alleviation_year,`demand_alleviation_year`>>
 //| [[slots_table.demand_alleviation_year]]<<demand_alleviation_year,`demand_alleviation_year`>>
 | 0..1 +
@@ -276,6 +283,32 @@ xref::class/Name.adoc[`Name`]
 [.text-left]
 --
 <<slots_table.area_capacity,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#congestion_url]
+=== `congestion_url`
++++URL for additional (congestion) information for this EnergyArea.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:EnergyArea.congestionURL`
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.congestion_url,&#10548;>>
 --
 ////
 
