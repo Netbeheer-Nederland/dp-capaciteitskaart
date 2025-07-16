@@ -1,0 +1,120 @@
+= `CongestionInfo`
+:toclevels: 4
+
+
++++Additional information about congestion for the EnergyArea. Allows free-format text and a link to additional information, such as a congestion report.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI
+| `this:CongestionInfo`
+
+
+
+
+|===
+
+== Class hierarchy
+* *`CongestionInfo`*
+
+
+== Slots
+
+
+
+
+[cols="1,1,2,1",width=100%]
+|===
+| Name | Type | Description | Inherited from
+
+| <<congestion_url,`congestion_url`>>
+//| [[slots_table.congestion_url]]<<congestion_url,`congestion_url`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++URL for additional (congestion) information for this EnergyArea.+++
+| _n/a_
+
+| <<description,`description`>>
+//| [[slots_table.description]]<<description,`description`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++Additional (free-format) information associated with the congestion info.+++
+| _n/a_
+|===
+
+'''
+
+
+//[discrete]
+[#congestion_url]
+=== `congestion_url`
++++URL for additional (congestion) information for this EnergyArea.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:CongestionInfo.congestionURL`
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.congestion_url,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#description]
+=== `description`
++++Additional (free-format) information associated with the congestion info.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:IdentifiedObject.description`
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.description,&#10548;>>
+--
+////
+
+
+
+
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/EnergyArea.adoc[`EnergyArea`] | xref::class/EnergyArea.adoc#congestion_info[`congestion_info`]
+
+
+|===
+
