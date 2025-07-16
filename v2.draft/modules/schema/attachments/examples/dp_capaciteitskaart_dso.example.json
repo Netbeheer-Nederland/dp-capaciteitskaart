@@ -2,7 +2,7 @@
   "identifier": "3238ebd8-ebe5-4593-83d8-7f3a25bafcff",
   "conforms_to": "http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart",
   "contact_point": "ritger.teunissen@alliander.com",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "valid": {
     "end": "2025-01-21",
     "start": "2025-12-21"
@@ -42,9 +42,9 @@
           "energy_areas": [
             {
               "short_code": "os fictief 20-3i",
-              "demand_alleviation_year": 2,
+              "demand_alleviation_year": 2028,
               "demand_energy_area_short_code": "",
-              "generation_alleviation_year": 2,
+              "generation_alleviation_year": 2030,
               "generation_energy_area_short_code": "",
               "works": [
                 {
@@ -52,6 +52,7 @@
                   "time_schedules": [
                     {
                       "schedule_interval": {
+                        "start": "2025-01-10",
                         "end": "2026-01-10"
                       }
                     }
