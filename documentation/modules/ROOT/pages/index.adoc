@@ -9,7 +9,7 @@ properties and data types.
 [d2,svg,theme=4]
 ----
 grid-rows: 4
-grid-columns: 3
+grid-columns: 5
 
 horizontal-gap: 160
 vertical-gap: 80
@@ -23,25 +23,37 @@ vars: {
 UpdateInfo.class: enterprise
 1.class: empty
 2.class: empty
+AreaCapacity.class: grid
+6.class: empty
 
 HeatmapDataSet.class: dataset
+GeographicalRegion.class: enterprise
+SubGeographicalRegion.class: enterprise
 EnergyArea.class: grid
 PostcodeArea.class: enterprise
 
-DateTimeInterval.class: grid
-Work.class: enterprise
 3.class: empty
-
+7.class: empty
+8.class: empty
+Work.class: enterprise
 4.class: empty
+
+DateTimeInterval.class: grid
+9.class: empty
+10.class: empty
 WorkTimeSchedule.class: enterprise
+5.class: empty
 
 HeatmapDataSet -> UpdateInfo: "updated"
 HeatmapDataSet -> DateTimeInterval: "valid"
-HeatmapDataSet -> EnergyArea: "energy_areas"
+HeatmapDataSet -> GeographicalRegion: "geographical_regions"
+GeographicalRegion -> SubGeographicalRegion: "regions"
+SubGeographicalRegion -> EnergyArea: "energy_areas"
 EnergyArea -> Work: "works"
 Work -> WorkTimeSchedule: "time_schedules"
 WorkTimeSchedule -> DateTimeInterval: "schedule_interval"
 EnergyArea -> PostcodeArea: "postcode_areas"
+EnergyArea -> AreaCapacity: "area_capacity"
 
 classes: {
   empty: {
@@ -155,13 +167,14 @@ classes: {
 The data is intended to be presented as a hierarchy with a
 xref:schema:class/HeatmapDataSet.adoc[`HeatmapDataSet`] at its root, followed
 by xref:schema:class/EnergyArea.adoc[`EnergyArea`] nested inside the
-`HeatmapDataSet`.
+`HeatmapDataSet`. A `GeographicalRegion` is used to allow consolidation of
+multiple datasets.
 
 This information model is based in part on the `LTDS Capacity Heatmap
 Information Model`, which itself is published under the `Open Government
 License`, under ©Crown copyright 2024.
 
-== Additional schemas
+== Additional artifacts
 
 * xref:schema:attachment$schemas/json_schema/dp_capaciteitskaart.json_schema.json[JSON schema]
 * xref:schema:attachment$examples/dp_capaciteitskaart_dso.example.json[Example DSO instance data]
