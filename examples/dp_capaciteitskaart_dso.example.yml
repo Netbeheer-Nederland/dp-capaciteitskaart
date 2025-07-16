@@ -51,6 +51,11 @@ geographical_regions:
                 generation_capacity_in_queue: 0
                 generation_quoted_capacity: 38
                 generation_requests_in_queue: 0
+            congestion_info:
+              - description: 'Aanmeldrapport congestie'
+                congestion_url: 'https://example.com/aanmeldrapport'
+              - description: 'Voortgangsrapport congestie'
+                congestion_url: 'https://example.com/voortgangsrapport'
             postcode_areas:
               - demand_constraint: 'amber'
                 generation_constraint: 'transparant'

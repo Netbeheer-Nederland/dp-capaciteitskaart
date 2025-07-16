@@ -253,12 +253,41 @@ classes:
         required: false
       congestion_url:
         description: URL for additional (congestion) information for this
-          EnergyArea.
+          EnergyArea. Only use this attribute if only one URL is required.
+          Otherwise, add more congestion information using
+          this:EnergyArea.CongestionInfo.
         range: string
         slot_uri: this:EnergyArea.congestionURL
         required: false
         multivalued: false
+      congestion_info:
+        description: Additional (congestion) information for this EnergyArea.
+          Use this to add multiple documentation and/or descriptions.
+        range: CongestionInfo
+        slot_uri: this:EnergyArea.CongestionInfo
+        required: false
+        multivalued: true
     class_uri: cim:EnergyArea
+  CongestionInfo:
+    description: Additional information about congestion for the EnergyArea.
+      Allows free-format text and a link to additional information, such as a
+      congestion report.
+    attributes:
+      description:
+        description: Additional (free-format) information associated with the
+          congestion info.
+        slot_uri: cim:IdentifiedObject.description
+        range: string
+        required: false
+        multivalued: false
+      congestion_url:
+        description: URL for additional (congestion) information for this
+          EnergyArea.
+        slot_uri: this:CongestionInfo.congestionURL
+        range: string
+        required: false
+        multivalued: false
+    class_uri: this:CongestionInfo
   AreaCapacity:
     description: Capacity information for a specific EnergyArea.
     is_a: IdentifiedObject
