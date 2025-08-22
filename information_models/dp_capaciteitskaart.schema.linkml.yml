@@ -1,8 +1,8 @@
-name: dp-capaciteitskaart
+name: capaciteitskaart
 description: |-
   Information models for the Capaciteitskaart.
 title: Capaciteitskaart
-id: http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart
+id: https://nbnl.info/capaciteitskaart/schema
 license: https://www.apache.org/licenses/LICENSE-2.0.txt
 imports:
 - linkml:types
@@ -11,14 +11,14 @@ prefixes:
   dcat: http://www.w3.org/ns/dcat#
   dct: http://purl.org/dc/terms/
   github: https://github.com/
-  liander: http://data.liander.nl/markt/def#
   linkml: https://w3id.org/linkml/
   nbnl: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
-  nl: http://iec.ch/TC57/CIM100-Netherlands#
   owl: http://www.w3.org/2002/07/owl#
-  skos: http://www.w3.org/2004/02/skos/core#
   unit: http://qudt.org/vocab/unit/
-  this: http://data.netbeheernederland.nl/dp-capaciteitskaart/def#
+  cimnl: https://nbnl.info/cim-nl/ns/
+  #nl: http://iec.ch/TC57/CIM100-Netherlands#
+  def: https://nbnl.info/capaciteitskaart/def/
+  term: https://nbnl.info/capaciteitskaart/concept/
 types:
   MegaW:
     typeof: float
