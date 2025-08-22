@@ -7,14 +7,14 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@base <https://nbnl.info/nc13/core-eq/> .
+@base <https://nbnl.info/capaciteitskaart/> .
 
 <> a prof:Profile ;
-    rdfs:label "NC13 Core Equipment"@en ;
-    dcterms:title "NBNL NC13 CIM-profiel: Core Equipment"@nl ,
-                  "NBNL NC13 CIM Profile: Core Equipment"@en ;
-    dcterms:description "Profile describing how to "@nl ,
-                        "Measurement data."@en ;
+    rdfs:label "Capaciteitskaart"@en ;
+    dcterms:title "Capaciteitskaart"@nl ,
+                  "Capacity Heat Map"@en ;
+    dcterms:description "TODO"@nl ,
+                        "TODO"@en ;
     pav:version "1.1" ;  # TODO: Or git refs? Or nothing?
     dcterms:issued "2025-03-06T17:59:40+01:00"^^xsd:dateTime ;
     prof:isProfileOf <https://cim.ucaiug.io> ;
