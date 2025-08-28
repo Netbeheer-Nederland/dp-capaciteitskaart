@@ -2,23 +2,24 @@ name: capaciteitskaart
 description: |-
   Information models for the Capaciteitskaart.
 title: Capaciteitskaart
-id: https://nbnl.info/capaciteitskaart/schema
+id: https://nbnl.info/capaciteitskaart/v2/schema
+# id: https://github.com/Netbeheer-Nederland/dp-capaciteitskaart/tree/v2.0.0/information_models/dp_capaciteitskaart.schema.linkml.yml
+# id: https://github.com/Netbeheer-Nederland/dp-capaciteitskaart/blob/bceb8fdecf2db1f7d7b353d7095b9c9a0aaeb0fd/information_models/dp_capaciteitskaart.schema.linkml.yml
+version: 2.0.0
+source: https://nbnl.info/capaciteitskaart
 license: https://www.apache.org/licenses/LICENSE-2.0.txt
 imports:
-- linkml:types
+  - linkml:types
 prefixes:
-  cim: https://cim.ucaiug.io/ns#
-  dcat: http://www.w3.org/ns/dcat#
-  dct: http://purl.org/dc/terms/
-  github: https://github.com/
   linkml: https://w3id.org/linkml/
-  nbnl: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
   owl: http://www.w3.org/2002/07/owl#
+  dct: http://purl.org/dc/terms/
   unit: http://qudt.org/vocab/unit/
-  cimnl: https://nbnl.info/cim-nl/ns/
-  #nl: http://iec.ch/TC57/CIM100-Netherlands#
-  def: https://nbnl.info/capaciteitskaart/def/
-  term: https://nbnl.info/capaciteitskaart/concept/
+  cim: https://cim.ucaiug.io/ns#
+  esb: https://nbnl.info/energiesysteembeheer/term/
+  capkrt: https://nbnl.info/capaciteitskaart/term/
+  # cimnl: https://nbnl.info/cim-nl/term/
+  # nl: http://iec.ch/TC57/CIM100-Netherlands#
 types:
   MegaW:
     typeof: float
@@ -33,57 +34,61 @@ enums:
   EnergyAreaKind:
     description: Kind of EnergyAdea. Defines the energy area as a regular
       energy area, or congestion area.
-    enum_uri: this:EnergyAreaKind
+    enum_uri: capkrt:EnergyAreaKind
     permissible_values:
       energy_area:
         description: Energy area.
-        meaning: this:EnergyAreaKind.energyArea
+        meaning: capkrt:EnergyAreaKind.energyArea
       congestion_area:
         description: Congestion area.
-        meaning: this:EnergyAreaKind.congestionArea
+        meaning: capkrt:EnergyAreaKind.congestionArea
   UpdateInfoKind:
     description: Type of information that has been updated as part of this
       dataset.
-    enum_uri: this:UpdateInfoKind
+    enum_uri: capkrt:UpdateInfoKind
     permissible_values:
       KI:
         description: Kleurinformatie.
-        meaning: this:UpdateInfoKind.KI
+        meaning: capkrt:UpdateInfoKind.KI
       ATC:
         description: Aanwezige transportcapaciteit.
-        meaning: this:UpdateInfoKind.ATC
+        meaning: capkrt:UpdateInfoKind.ATC
       BTC:
         description: Benodigde transportcapaciteit.
-        meaning: this:UpdateInfoKind.BTC
+        meaning: capkrt:UpdateInfoKind.BTC
       WR:
         description: Wachtrij.
-        meaning: this:UpdateInfoKind.WR
+        meaning: capkrt:UpdateInfoKind.WR
       NU:
         description: Netuitbreidingen.
-        meaning: this:UpdateInfoKind.NU
+        meaning: capkrt:UpdateInfoKind.NU
       JC:
         description: Jaartal congestie opgelost.
-        meaning: this:UpdateInfoKind.JC
+        meaning: capkrt:UpdateInfoKind.JC
   RAGKind:
     description: Traffic light colors coding scheme for categorising status.
-    enum_uri: this:RAGKind
+    enum_uri: capkrt:RAGKind
     permissible_values:
       transparant:
-        description: Transport capacity is available, without queue ("Transportcapaciteit
+        description:
+          Transport capacity is available, without queue ("Transportcapaciteit
           beschikbaar zonder wachtrij").
-        meaning: this:RAGKind.Transparant
+        meaning: capkrt:RAGKind.Transparant
       red:
-        description: Shortage of transport capacity, with queue (Tekort aan Transportcapaciteit
+        description:
+          Shortage of transport capacity, with queue (Tekort aan Transportcapaciteit
           met wachtrij).
-        meaning: this:RAGKind.Red
+        meaning: capkrt:RAGKind.Red
       amber:
-        description: Energy Area is being investigated, with queue (Voedingsgebied
+        description:
+          Energy Area is being investigated, with queue (Voedingsgebied
           is in onderzoek met wachtrij).
-        meaning: this:RAGKind.Amber
+        meaning: capkrt:RAGKind.Amber
       yellow:
-        description: Limited availability of transport capacity, without queue (Transportcapaciteit
+        description:
+          Limited availability of transport capacity, without queue (Transportcapaciteit
           beperkt beschikbaar zonder wachtrij).
-        meaning: this:RAGKind.Yellow
+        meaning: capkrt:RAGKind.Yellow
   WorkStatusKind:
     description: Kind of status, specific to work.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968
@@ -116,7 +121,8 @@ enums:
         meaning: cim:WorkTimeScheduleKind.request
 classes:
   HeatmapDataSet:
-    description: A single instance of a published dataset. The descriptions of these
+    description:
+      A single instance of a published dataset. The descriptions of these
       fields are taken from the Dublin Core Standard.
     attributes:
       identifier:
@@ -144,18 +150,18 @@ classes:
         required: true
       updated:
         description: Type of information that was updated for this dataset.
-        slot_uri: this:HeatmapDataSet.updated
+        slot_uri: capkrt:HeatmapDataSet.updated
         range: UpdateInfo
         required: false
         multivalued: true
       geographical_regions:
         description: All instances of GeographicalRegions
-        slot_uri: this:HeatmapDataSet.GeographicalRegions
+        slot_uri: capkrt:HeatmapDataSet.GeographicalRegions
         range: GeographicalRegion
         multivalued: true
         required: true
         inlined_as_list: true
-    class_uri: this:HeatmapDataSet
+    class_uri: capkrt:HeatmapDataSet
     tree_root: true
   GeographicalRegion:
     description: "A geographical region of a power system network model."
@@ -182,72 +188,76 @@ classes:
         multivalued: true
     class_uri: cim:SubGeographicalRegion
   EnergyArea:
-    description: Describes an area having energy production or consumption. Specializations
+    description:
+      Describes an area having energy production or consumption. Specializations
       are intended to support the load allocation function as typically required in
       energy management systems or planning studies to allocate hypothesized load
       levels to individual load points for power flow analysis. Often the energy area
       can be linked to both measured and forecast load levels.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.LoadModel
     exact_mappings:
-    - nbnl:voedingsgebied
+      - esb:voedingsgebied
     is_a: IdentifiedObject
     attributes:
       short_code:
-        description: Short code name for EnergyArea. This is the "Uniek ID voedingsgebied"
+        description:
+          Short code name for EnergyArea. This is the "Uniek ID voedingsgebied"
           in the previous implementation.
-        slot_uri: this:EnergyArea.shortCode
+        slot_uri: capkrt:EnergyArea.shortCode
         required: true
         multivalued: false
       type:
         description: Type of EnergyArea, either a regular energy area, or
           congestion area. Only the TSO dataset can define congestion areas.
-        slot_uri: this:EnergyArea.type
+        slot_uri: capkrt:EnergyArea.type
         range: EnergyAreaKind
         required: false
         multivalued: false
       demand_alleviation_year:
-        description: Year (e.g. "2028") from which any capacity issues have been alleviated
+        description:
+          Year (e.g. "2028") from which any capacity issues have been alleviated
           for the EnergyArea.
-        slot_uri: this:EnergyArea.demandAlleviationYear
+        slot_uri: capkrt:EnergyArea.demandAlleviationYear
         range: integer
         required: false
         multivalued: false
       demand_energy_area_short_code:
         description: Reference to a TenneT EnergyArea which is defined as a
           congestion area. Used specifically in the TSO dataset.
-        slot_uri: this:EnergyArea.demandEnergyAreaShortCode
+        slot_uri: capkrt:EnergyArea.demandEnergyAreaShortCode
         range: string
         required: false
         multivalued: false
       generation_alleviation_year:
-        description: Year (e.g. "2028") from which any capacity issues have been alleviated
+        description:
+          Year (e.g. "2028") from which any capacity issues have been alleviated
           for the EnergyArea.
-        slot_uri: this:EnergyArea.generationAlleviationYear
+        slot_uri: capkrt:EnergyArea.generationAlleviationYear
         range: integer
         required: false
         multivalued: false
       generation_energy_area_short_code:
         description: Reference to a TenneT EnergyArea which is defined as a
           congestion area. Used specifically in the TSO dataset.
-        slot_uri: this:EnergyArea.generationEnergyAreaShortCode
+        slot_uri: capkrt:EnergyArea.generationEnergyAreaShortCode
         range: string
         required: false
         multivalued: false
       works:
         description: All the works performed for this EnergyArea.
-        slot_uri: this:EnergyArea.Works
+        slot_uri: capkrt:EnergyArea.Works
         multivalued: true
         range: Work
         required: false
       area_capacity:
         description:
-        slot_uri: this:EnergyArea.AreaCapacity
+        slot_uri: capkrt:EnergyArea.AreaCapacity
         multivalued: true
         range: AreaCapacity
         required: true
       postcode_areas:
         description: Postcode Areas serviced by this EnergyArea.
-        slot_uri: this:EnergyArea.PostcodeAreas
+        slot_uri: capkrt:EnergyArea.PostcodeAreas
         multivalued: true
         range: PostcodeArea
         required: false
@@ -255,7 +265,7 @@ classes:
         description: URL for additional (congestion) information for this
           EnergyArea.
         range: string
-        slot_uri: this:EnergyArea.congestionURL
+        slot_uri: capkrt:EnergyArea.congestionURL
         required: false
         multivalued: false
     class_uri: cim:EnergyArea
@@ -266,7 +276,7 @@ classes:
       capacity_interval:
         description: Capacity information date and time interval. Allows
           providing multiple points in time to provide capacity information.
-        slot_uri: this:AreaCapacity.capacity_interval
+        slot_uri: capkrt:AreaCapacity.capacity_interval
         range: DateTimeInterval
         required: true
         multivalued: false
@@ -275,7 +285,7 @@ classes:
           capacity increases in queue. This is the "Aantal unieke
           transportverzoeken in een wachtrij - afname" in the previous
           implementation.
-        slot_uri: this:EnergyArea.demandRequestsInQueue
+        slot_uri: capkrt:EnergyArea.demandRequestsInQueue
         range: integer
         required: false
         multivalued: false
@@ -284,7 +294,7 @@ classes:
         description: The contract value of demand requests not yet granted.
           This is the "Wachtrij in capaciteit - afname" in the previous
           implementation.
-        slot_uri: this:EnergyArea.demandCapacityInQueue
+        slot_uri: capkrt:EnergyArea.demandCapacityInQueue
         range: MegaW
         required: false
         multivalued: false
@@ -293,7 +303,7 @@ classes:
         description: Sum of all demand (in MW) currently quoted at the
           EnergyArea.  This is the "Benodigde transportcapaciteit (in MW)
           afname" in the previous implementation.
-        slot_uri: this:EnergyArea.demandQuotedCapacity
+        slot_uri: capkrt:EnergyArea.demandQuotedCapacity
         range: MegaW
         required: false
         multivalued: false
@@ -304,144 +314,158 @@ classes:
           available to a connecting party. This is the "Aanwezige
           transportcapaciteit (in MW) afname huidige jaar" in the previous
           implementation.
-        slot_uri: this:EnergyArea.demandAvailableCapacity
+        slot_uri: capkrt:EnergyArea.demandAvailableCapacity
         range: MegaW
         required: false
         multivalued: false
         minimum_value: 0
       demand_forecast_capacity:
-        description: Sum of all demand (in MW) forecast for the current year at the
+        description:
+          Sum of all demand (in MW) forecast for the current year at the
           EnergyArea.
-        slot_uri: this:EnergyArea.demandForecastCapacity
+        slot_uri: capkrt:EnergyArea.demandForecastCapacity
         range: MegaW
         required: false
         multivalued: false
         minimum_value: 0
       demand_tso_limit:
         description: TSO EnergyArea limit for demand (in MW).
-        slot_uri: this:EnergyArea.demandTSOLimit
+        slot_uri: capkrt:EnergyArea.demandTSOLimit
         range: MegaW
         required: false
         multivalued: false
         minimum_value: 0
       demand_constraint:
-        description: A RAG definition of the demand constraints at the EnergyArea.
+        description:
+          A RAG definition of the demand constraints at the EnergyArea.
           A utility should provide details on how this RAG status is calculated as
           part of the accompanying documentation. Only specify this attribute if no
           PostcodeArea-s are provided.
-        slot_uri: this:EnergyArea.demandConstraint
+        slot_uri: capkrt:EnergyArea.demandConstraint
         range: RAGKind
         required: false
         multivalued: false
       generation_requests_in_queue:
-        description: Number of generation requests for new grid connections and capacity
+        description:
+          Number of generation requests for new grid connections and capacity
           increases in queue. This is the "Aantal unieke transportverzoeken in een
           wachtrij - invoeding" in the previous implementation.
-        slot_uri: this:EnergyArea.generationRequestsInQueue
+        slot_uri: capkrt:EnergyArea.generationRequestsInQueue
         range: integer
         required: false
         multivalued: false
         minimum_value: 0
       generation_capacity_in_queue:
-        description: The contract value of generation requests not yet granted. This
+        description:
+          The contract value of generation requests not yet granted. This
           is the "Wachtrij in capaciteit - invoeding" in the previous implementation.
-        slot_uri: this:EnergyArea.generationCapacityInQueue
+        slot_uri: capkrt:EnergyArea.generationCapacityInQueue
         range: MegaW
         required: false
         multivalued: false
         minimum_value: 0
       generation_quoted_capacity:
-        description: Sum of all currently quoted generation (in MW) at the EnergyArea.
+        description:
+          Sum of all currently quoted generation (in MW) at the EnergyArea.
           This is the "Benodigde transportcapaciteit (in MW) invoeding" in the previous
           implementation.
-        slot_uri: this:EnergyArea.generationQuotedCapacity
+        slot_uri: capkrt:EnergyArea.generationQuotedCapacity
         range: MegaW
         required: false
         multivalued: false
         minimum_value: 0
       generation_available_capacity:
-        description: Available generation capacity (in MW) at the EnergyArea. This
+        description:
+          Available generation capacity (in MW) at the EnergyArea. This
           is the "Aanwezige transportcapaciteit (in MW) invoeding huidige jaar" in
           the previous implementation.
-        slot_uri: this:EnergyArea.generationAvailableCapacity
+        slot_uri: capkrt:EnergyArea.generationAvailableCapacity
         range: MegaW
         required: false
         multivalued: false
         minimum_value: 0
       generation_forecast_capacity:
-        description: Sum of all forecast generation (in MW) for the current year at
+        description:
+          Sum of all forecast generation (in MW) for the current year at
           the EnergyArea.
-        slot_uri: this:EnergyArea.generationForecastCapacity
+        slot_uri: capkrt:EnergyArea.generationForecastCapacity
         range: MegaW
         required: false
         multivalued: false
         minimum_value: 0
       generation_tso_limit:
         description: TSO EnergyArea limit for generation (in MW).
-        slot_uri: this:EnergyArea.generationTSOLimit
+        slot_uri: capkrt:EnergyArea.generationTSOLimit
         range: MegaW
         required: false
         multivalued: false
         minimum_value: 0
       generation_constraint:
-        description: A RAG definition of the generation constraints at the EnergyArea.
+        description:
+          A RAG definition of the generation constraints at the EnergyArea.
           A utility should provide details on how this RAG status is calculated as
           part of the accompanying documentation. Only specify this attribute if no
           PostcodeArea-s are provided.
-        slot_uri: this:EnergyArea.generationConstraint
+        slot_uri: capkrt:EnergyArea.generationConstraint
         range: RAGKind
         required: false
         multivalued: false
-    class_uri: this:AreaCapacity
+    class_uri: capkrt:AreaCapacity
   PostcodeArea:
-    description: A geographic region that is defined by the initial letters or digits
+    description:
+      A geographic region that is defined by the initial letters or digits
       of a postcode.
     is_a: IdentifiedObject
     attributes:
       postcode:
-        description: Identifier for the postcode area. Contain four (4) numbers, followed
+        description:
+          Identifier for the postcode area. Contain four (4) numbers, followed
           by two (2) letters, uppercase. No spaces between the numbers and letters,
           i.e. "1234AB".
-        slot_uri: this:PostcodeArea.postcode
+        slot_uri: capkrt:PostcodeArea.postcode
         required: true
         multivalued: false
       substation_short_code:
         description: TenneT substation ("Onderstation") which feeds this
           PostcodeArea. Use the "ck.EnergyArea.short_code" from the TenneT
           dataset to relate the PostcodeArea.
-        slot_uri: this:PostcodeArea.substationShortCode
+        slot_uri: capkrt:PostcodeArea.substationShortCode
         required: false
         multivalued: false
       demand_constraint:
-        description: A RAG definition of the demand constraints at the EnergyArea.
+        description:
+          A RAG definition of the demand constraints at the EnergyArea.
           A utility should provide details on how this RAG status is calculated as
           part of the accompanying documentation. This is the "Kleurcodering van het
           postcodegebied voor afname" in the previous implementation.
-        slot_uri: this:PostcodeArea.demandConstraint
+        slot_uri: capkrt:PostcodeArea.demandConstraint
         range: RAGKind
         required: true
         multivalued: false
       generation_constraint:
-        description: A RAG definition of the generation constraints at the EnergyArea.
+        description:
+          A RAG definition of the generation constraints at the EnergyArea.
           A utility should provide details on how this RAG status is calculated as
           part of the accompanying documentation. This is the "Kleurcodering van het
           postcodegebied voor opwek" in the previous implementation.
-        slot_uri: this:PostcodeArea.generationConstraint
+        slot_uri: capkrt:PostcodeArea.generationConstraint
         range: RAGKind
         required: true
         multivalued: false
-    class_uri: this:PostcodeArea
+    class_uri: capkrt:PostcodeArea
   Work:
-    description: Document used to request, initiate, track and record work. Use the
+    description:
+      Document used to request, initiate, track and record work. Use the
       "description" attribute to add additional information about this "Work". This
       is "Toelichting bijzonderheden rondom planning" in the previous implementation.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
     is_a: BaseWork
     attributes:
       project_name:
-        description: Name of the project this work belongs to. This is the "Projectnaam"
+        description:
+          Name of the project this work belongs to. This is the "Projectnaam"
           in the previous implementation.
-        slot_uri: this:Work.projectName
+        slot_uri: capkrt:Work.projectName
         range: string
         required: true
         multivalued: false
@@ -449,7 +473,7 @@ classes:
         description: URL to the project web page or portal where the project
           information can be found.
         range: string
-        slot_uri: this:Work.projectURL
+        slot_uri: capkrt:Work.projectURL
         required: false
         multivalued: false
     class_uri: cim:Work
@@ -477,14 +501,16 @@ classes:
     is_a: TimeSchedule
     class_uri: cim:WorkTimeSchedule
   Document:
-    description: Parent class for different groupings of information collected and
+    description:
+      Parent class for different groupings of information collected and
       managed as a part of a business process. It will frequently contain references
       to other objects, such as assets, people and power system resources.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
     is_a: IdentifiedObject
     attributes:
       type:
-        description: Utility-specific classification of this document, according to
+        description:
+          Utility-specific classification of this document, according to
           its corporate standards, practices, and existing IT systems (e.g., for management
           of assets, maintenance, work, outage, customers, etc.).
         slot_uri: cim:Document.type
@@ -493,7 +519,8 @@ classes:
         multivalued: false
     class_uri: cim:Document
   TimeSchedule:
-    description: Description of anything that changes through time. Time schedule
+    description:
+      Description of anything that changes through time. Time schedule
       is used to perform a single-valued function of time. Use inherited 'type' attribute
       to give additional information on this schedule, such as periodic (hourly, daily,
       weekly, monthly, etc.), day of the month, by date, calendar (specific times
@@ -509,7 +536,8 @@ classes:
         multivalued: false
     class_uri: cim:TimeSchedule
   DateTimeInterval:
-    description: Interval between two date and time points, where the interval includes
+    description:
+      Interval between two date and time points, where the interval includes
       the start time but excludes end time.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Domain
     attributes:
@@ -533,8 +561,8 @@ classes:
         multivalued: false
       quarter:
         description: Quarter indicator for when this Work is completed. Use in
-          combination with this:DateTimeInterval.year.
-        slot_uri: this:DateTimeInterval.quarter
+          combination with capkrt:DateTimeInterval.year.
+        slot_uri: capkrt:DateTimeInterval.quarter
         range: integer
         minimum_value: 1
         maximum_value: 4
@@ -542,8 +570,8 @@ classes:
         multivalued: false
       year:
         description: Year indicator for when this Work is completed. Use in
-          combination with this:DateTimeInterval.quarter.
-        slot_uri: this:DateTimeInterval.year
+          combination with capkrt:DateTimeInterval.quarter.
+        slot_uri: capkrt:DateTimeInterval.year
         range: integer
         required: false
         multivalued: false
@@ -560,24 +588,27 @@ classes:
         multivalued: false
       type:
         description: Type of the update.
-        slot_uri: this:UpdateInfo.type
+        slot_uri: capkrt:UpdateInfo.type
         range: UpdateInfoKind
         required: true
         multivalued: false
-    class_uri: this:UpdateInfo
+    class_uri: capkrt:UpdateInfo
   IdentifiedObject:
-    description: This is a root class to provide common identification for all classes
+    description:
+      This is a root class to provide common identification for all classes
       needing identification and naming attributes.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     attributes:
       description:
-        description: The description is a free human readable text describing or naming
+        description:
+          The description is a free human readable text describing or naming
           the object. It may be non unique and may not correlate to a naming hierarchy.
           This is the "Herkenbare naam voedingsgebied" in the previous implementation.
         slot_uri: cim:IdentifiedObject.description
         range: string
       m_rid:
-        description: Master resource identifier issued by a model authority. The mRID
+        description:
+          Master resource identifier issued by a model authority. The mRID
           is unique within an exchange context. Global uniqueness is easily achieved
           by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID
           is strongly recommended. For CIMXML data files in RDF syntax conforming
@@ -595,7 +626,8 @@ classes:
         range: Name
     class_uri: cim:IdentifiedObject
   Name:
-    description: The Name class provides the means to define any number of human readable
+    description:
+      The Name class provides the means to define any number of human readable
       names for an object. A name is <b>not</b> to be used for defining inter-object
       relationships. For inter-object relationships instead use the object identification
       'mRID'
@@ -615,7 +647,8 @@ classes:
         multivalued: false
     class_uri: cim:Name
   NameType:
-    description: Type of name. Possible values for attribute 'name' are implementation
+    description:
+      Type of name. Possible values for attribute 'name' are implementation
       dependent but standard profiles may specify types. An enterprise may have multiple
       IT systems each having its own local name for the same object, e.g.  a planning
       system may have different names from an EMS. An object may also have different
@@ -641,7 +674,8 @@ classes:
         multivalued: false
     class_uri: cim:NameType
   NameTypeAuthority:
-    description: Authority responsible for creation and management of names of a given
+    description:
+      Authority responsible for creation and management of names of a given
       type; typically an organization or an enterprise system.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     attributes:
