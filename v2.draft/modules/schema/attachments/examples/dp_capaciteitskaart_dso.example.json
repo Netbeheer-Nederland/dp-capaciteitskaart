@@ -51,9 +51,17 @@
                   "project_name": "WO#_1234_Verzwaring_Pieterslaan",
                   "time_schedules": [
                     {
+                      "description": "Eerste schatting.",
                       "schedule_interval": {
                         "start": "2025-01-10",
                         "end": "2026-01-10"
+                      }
+                    },
+                    {
+                      "description": "Tweede schatting.",
+                      "schedule_interval": {
+                        "start": "2026-01-10",
+                        "end": "2027-01-10"
                       }
                     }
                   ],
