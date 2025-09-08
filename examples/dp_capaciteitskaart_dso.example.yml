@@ -31,21 +31,20 @@ geographical_regions:
             works:
               - project_name: 'WO#_1234_Verzwaring_Pieterslaan'
                 time_schedules:
-                  - description: 'Eerste schatting.'
+                  - description: 'Eerste schatting (Van).'
                     schedule_interval:
-                      start: '2025-01-10'
-                      end: '2026-01-10'
-                  - description: 'Tweede schatting.'
+                      quarter: 3
+                      year: 2026
+                  - description: 'Tweede schatting (Tot).'
                     schedule_interval:
-                      start: '2026-01-10'
-                      end: '2027-01-10'
+                      quarter: 4
+                      year: 2026
                 description: 'Uitbreiding netstation Pieterslaan'
               - project_name: 'WO#_4321_Vervanging_Transformator'
                 time_schedules:
                   - schedule_interval:
-                      quarter: 3
-                      year: 2026
-                description: 'Vervanging transformator'
+                      start: '2025-01-10'
+                      end: '2026-01-10'
             area_capacity:
               - capacity_interval:
                   year: 2025
