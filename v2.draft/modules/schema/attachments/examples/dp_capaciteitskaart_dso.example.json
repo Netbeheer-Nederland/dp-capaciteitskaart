@@ -51,17 +51,17 @@
                   "project_name": "WO#_1234_Verzwaring_Pieterslaan",
                   "time_schedules": [
                     {
-                      "description": "Eerste schatting.",
+                      "description": "Eerste schatting (Van).",
                       "schedule_interval": {
-                        "start": "2025-01-10",
-                        "end": "2026-01-10"
+                        "quarter": 3,
+                        "year": 2026
                       }
                     },
                     {
-                      "description": "Tweede schatting.",
+                      "description": "Tweede schatting (Tot).",
                       "schedule_interval": {
-                        "start": "2026-01-10",
-                        "end": "2027-01-10"
+                        "quarter": 4,
+                        "year": 2026
                       }
                     }
                   ],
@@ -72,12 +72,11 @@
                   "time_schedules": [
                     {
                       "schedule_interval": {
-                        "quarter": 3,
-                        "year": 2026
+                        "start": "2025-01-10",
+                        "end": "2026-01-10"
                       }
                     }
-                  ],
-                  "description": "Vervanging transformator"
+                  ]
                 }
               ],
               "area_capacity": [
