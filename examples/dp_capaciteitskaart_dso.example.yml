@@ -30,6 +30,7 @@ geographical_regions:
             generation_energy_area_short_code: ''
             works:
               - project_name: 'WO#_1234_Verzwaring_Pieterslaan'
+                status_kind: 'inProgress'
                 time_schedules:
                   - description: 'Eerste schatting (Van).'
                     schedule_interval:
@@ -41,6 +42,7 @@ geographical_regions:
                       year: 2026
                 description: 'Uitbreiding netstation Pieterslaan'
               - project_name: 'WO#_4321_Vervanging_Transformator'
+                status_kind: 'approved'
                 time_schedules:
                   - schedule_interval:
                       start: '2025-01-10'
