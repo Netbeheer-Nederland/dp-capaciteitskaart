@@ -29,27 +29,27 @@
 
 | `ATC`
 | `this:UpdateInfoKind.ATC`
-| n/a
+| +++Aanwezige transportcapaciteit.+++
 
 | `BTC`
 | `this:UpdateInfoKind.BTC`
-| n/a
+| +++Benodigde transportcapaciteit.+++
 
 | `JC`
 | `this:UpdateInfoKind.JC`
-| n/a
+| +++Jaartal congestie opgelost.+++
 
 | `KI`
 | `this:UpdateInfoKind.KI`
-| n/a
+| +++Kleurinformatie.+++
 
 | `NU`
 | `this:UpdateInfoKind.NU`
-| n/a
+| +++Netuitbreidingen.+++
 
 | `WR`
 | `this:UpdateInfoKind.WR`
-| n/a
+| +++Wachtrij.+++
 |===
 
 == Used by

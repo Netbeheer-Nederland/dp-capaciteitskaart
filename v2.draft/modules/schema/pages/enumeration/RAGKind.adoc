@@ -29,19 +29,19 @@
 
 | `amber`
 | `this:RAGKind.Amber`
-| n/a
+| +++Energy Area is being investigated, with queue (Voedingsgebied is in onderzoek met wachtrij).+++
 
 | `red`
 | `this:RAGKind.Red`
-| n/a
+| +++Shortage of transport capacity, with queue (Tekort aan Transportcapaciteit met wachtrij).+++
 
 | `transparant`
 | `this:RAGKind.Transparant`
-| n/a
+| +++Transport capacity is available, without queue ("Transportcapaciteit beschikbaar zonder wachtrij").+++
 
 | `yellow`
 | `this:RAGKind.Yellow`
-| n/a
+| +++Limited availability of transport capacity, without queue (Transportcapaciteit beperkt beschikbaar zonder wachtrij).+++
 |===
 
 == Used by

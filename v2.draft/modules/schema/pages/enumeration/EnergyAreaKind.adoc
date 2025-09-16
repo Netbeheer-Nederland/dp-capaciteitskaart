@@ -29,11 +29,11 @@
 
 | `congestion_area`
 | `this:EnergyAreaKind.congestionArea`
-| n/a
+| +++Congestion area.+++
 
 | `energy_area`
 | `this:EnergyAreaKind.energyArea`
-| n/a
+| +++Energy area.+++
 |===
 
 == Used by

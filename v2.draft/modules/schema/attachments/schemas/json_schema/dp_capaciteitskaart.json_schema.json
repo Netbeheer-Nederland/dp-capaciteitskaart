@@ -856,10 +856,9 @@
         "WorkStatusKind": {
             "description": "Kind of status, specific to work.",
             "enum": [
-                "cancelled",
-                "completed",
-                "inProgress",
-                "scheduled"
+                "approved",
+                "scheduled",
+                "inProgress"
             ],
             "title": "WorkStatusKind",
             "type": "string"

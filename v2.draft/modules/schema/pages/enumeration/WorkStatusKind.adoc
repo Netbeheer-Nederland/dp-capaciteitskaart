@@ -27,21 +27,17 @@
 |===
 | Value | URI | Description
 
-| `cancelled`
-| `cim:WorkStatusKind.cancelled`
-| n/a
-
-| `completed`
-| `cim:WorkStatusKind.completed`
-| n/a
+| `approved`
+| `cim:WorkStatusKind.approved`
+| +++Initiatiefase.+++
 
 | `inProgress`
 | `cim:WorkStatusKind.inProgress`
-| n/a
+| +++Uitvoeringsfase.+++
 
 | `scheduled`
 | `cim:WorkStatusKind.scheduled`
-| n/a
+| +++Definitie- en ontwerpfase.+++
 |===
 
 == Used by

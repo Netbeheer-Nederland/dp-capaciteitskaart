@@ -49,6 +49,7 @@
               "works": [
                 {
                   "project_name": "WO#_1234_Verzwaring_Pieterslaan",
+                  "status_kind": "inProgress",
                   "time_schedules": [
                     {
                       "description": "Eerste schatting (Van).",
@@ -69,6 +70,7 @@
                 },
                 {
                   "project_name": "WO#_4321_Vervanging_Transformator",
+                  "status_kind": "approved",
                   "time_schedules": [
                     {
                       "schedule_interval": {
