@@ -89,14 +89,15 @@ enums:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968
     enum_uri: cim:WorkStatusKind
     permissible_values:
-      cancelled:
-        meaning: cim:WorkStatusKind.cancelled
-      completed:
-        meaning: cim:WorkStatusKind.completed
-      inProgress:
-        meaning: cim:WorkStatusKind.inProgress
+      approved:
+        description: Initiatiefase.
+        meaning: cim:WorkStatusKind.approved
       scheduled:
+        description: Definitie- en ontwerpfase.
         meaning: cim:WorkStatusKind.scheduled
+      inProgress:
+        description: Uitvoeringsfase.
+        meaning: cim:WorkStatusKind.inProgress
   WorkTimeScheduleKind:
     description: Kind of work schedule.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968
