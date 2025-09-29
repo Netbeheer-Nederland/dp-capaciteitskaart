@@ -48,6 +48,7 @@
               "works": [
                 {
                   "project_name": "WO#_2345_BWD110_realiseren_station",
+                  "source": "Investeringsplan",
                   "time_schedules": [
                     {
                       "schedule_interval": {

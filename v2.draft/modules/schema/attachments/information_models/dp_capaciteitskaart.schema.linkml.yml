@@ -482,6 +482,13 @@ classes:
         slot_uri: this:Work.projectURL
         required: false
         multivalued: false
+      source:
+        description: Source of the project information. Usually an investment
+          plan or scheduled work.
+        range: string
+        slot_uri: this:Work.source
+        required: false
+        multivalued: false
     class_uri: cim:Work
   BaseWork:
     description: Common representation for work and work tasks.

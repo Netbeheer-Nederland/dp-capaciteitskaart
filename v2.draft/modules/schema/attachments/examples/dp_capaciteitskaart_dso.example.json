@@ -50,6 +50,7 @@
                 {
                   "project_name": "WO#_1234_Verzwaring_Pieterslaan",
                   "status_kind": "inProgress",
+                  "source": "Investeringsplan",
                   "time_schedules": [
                     {
                       "description": "Eerste schatting (Van).",

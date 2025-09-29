@@ -827,6 +827,13 @@
                         "null"
                     ]
                 },
+                "source": {
+                    "description": "Source of the project information. Usually an investment plan or scheduled work.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "status_kind": {
                     "$ref": "#/$defs/WorkStatusKind",
                     "description": "Kind of work status."

@@ -141,6 +141,13 @@ https://w3id.org/linkml/String[`string`]
 | +++URL to the project web page or portal where the project information can be found.+++
 | _n/a_
 
+| <<source,`source`>>
+//| [[slots_table.source]]<<source,`source`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++Source of the project information. Usually an investment plan or scheduled work.+++
+| _n/a_
+
 | <<status_kind,`status_kind`>>
 //| [[slots_table.status_kind]]<<status_kind,`status_kind`>>
 | 0..1 +
@@ -322,6 +329,32 @@ xref::class/Name.adoc[`Name`]
 [.text-left]
 --
 <<slots_table.project_url,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#source]
+=== `source`
++++Source of the project information. Usually an investment plan or scheduled work.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:Work.source`
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.source,&#10548;>>
 --
 ////
 
