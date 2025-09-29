@@ -2,7 +2,7 @@
   "identifier": "83a1fbd9-1d3a-4f4b-9fc0-57dacddc88a0",
   "conforms_to": "http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart",
   "contact_point": "ritger.teunissen@alliander.com",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "valid": {
     "end": "2025-01-21",
     "start": "2025-12-21"
@@ -48,6 +48,7 @@
               "works": [
                 {
                   "project_name": "WO#_2345_BWD110_realiseren_station",
+                  "status_kind": "inProgress",
                   "source": "Investeringsplan",
                   "time_schedules": [
                     {
@@ -87,6 +88,8 @@
               "works": [
                 {
                   "project_name": "WO#_3456_Realiseren_station",
+                  "status_kind": "approved",
+                  "source": "Investeringsplan",
                   "time_schedules": [
                     {
                       "schedule_interval": {
