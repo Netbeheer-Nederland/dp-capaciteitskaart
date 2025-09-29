@@ -29,6 +29,7 @@ geographical_regions:
             generation_alleviation_year: 2030
             works:
               - project_name: 'WO#_2345_BWD110_realiseren_station'
+                source: 'Investeringsplan'
                 time_schedules:
                   - schedule_interval:
                       end: '2026-01-10'
