@@ -140,7 +140,7 @@ xref::enumeration/MegaW.adoc[`MegaW`]
 //| [[slots_table.demand_capacity_in_queue]]<<demand_capacity_in_queue,`demand_capacity_in_queue`>>
 | 0..1 +
 xref::enumeration/MegaW.adoc[`MegaW`]
-| +++The contract value of demand requests not yet granted. This is the "Wachtrij in capaciteit - afname" in the previous implementation.+++
+| +++The contract value of demand requests not yet granted. This is the "Wachtrij in capaciteit - afname" in the previous...+++
 | _n/a_
 
 | <<demand_constraint,`demand_constraint`>>
@@ -154,14 +154,14 @@ xref::enumeration/RAGKind.adoc[`RAGKind`]
 //| [[slots_table.demand_forecast_capacity]]<<demand_forecast_capacity,`demand_forecast_capacity`>>
 | 0..1 +
 xref::enumeration/MegaW.adoc[`MegaW`]
-| +++Sum of all demand (in MW) forecast for the current year at the EnergyArea.+++
+| +++Sum of all demand (in MW) forecast for the current year at the EnergyArea, or "Nodig voor nog niet aangevraagde capaciteit,...+++
 | _n/a_
 
 | <<demand_quoted_capacity,`demand_quoted_capacity`>>
 //| [[slots_table.demand_quoted_capacity]]<<demand_quoted_capacity,`demand_quoted_capacity`>>
 | 0..1 +
 xref::enumeration/MegaW.adoc[`MegaW`]
-| +++Sum of all demand (in MW) currently quoted at the EnergyArea.  This is the "Benodigde transportcapaciteit (in MW) afname" in...+++
+| +++Sum of all demand (in MW) currently quoted at the EnergyArea. This is the "Benodigde transportcapaciteit (in MW) afname" in...+++
 | _n/a_
 
 | <<demand_requests_in_queue,`demand_requests_in_queue`>>
@@ -203,14 +203,14 @@ xref::enumeration/RAGKind.adoc[`RAGKind`]
 //| [[slots_table.generation_forecast_capacity]]<<generation_forecast_capacity,`generation_forecast_capacity`>>
 | 0..1 +
 xref::enumeration/MegaW.adoc[`MegaW`]
-| +++Sum of all forecast generation (in MW) for the current year at the EnergyArea.+++
+| +++Sum of all forecast generation (in MW) for the current year at the EnergyArea, or "Nodig voor nog niet aangevraagde...+++
 | _n/a_
 
 | <<generation_quoted_capacity,`generation_quoted_capacity`>>
 //| [[slots_table.generation_quoted_capacity]]<<generation_quoted_capacity,`generation_quoted_capacity`>>
 | 0..1 +
 xref::enumeration/MegaW.adoc[`MegaW`]
-| +++Sum of all currently quoted generation (in MW) at the EnergyArea. This is the "Benodigde transportcapaciteit (in MW)...+++
+| +++Sum of all currently quoted generation (in MW) at the EnergyArea.  This is the "Benodigde transportcapaciteit (in MW)...+++
 | _n/a_
 
 | <<generation_requests_in_queue,`generation_requests_in_queue`>>
@@ -281,7 +281,7 @@ xref::class/Name.adoc[`Name`]
 //[discrete]
 [#demand_available_capacity]
 === `demand_available_capacity`
-+++The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the "Aanwezige transportcapaciteit (in MW) afname huidige jaar" in the previous implementation.+++
++++The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the "Aanwezige transportcapaciteit (in MW) afname huidige jaar" in the previous implementation, or "Aanwezige transportcapaciteit".+++
 
 
 [cols="h,4",width=65%]
@@ -292,6 +292,23 @@ xref::class/Name.adoc[`Name`]
 | 0..1
 | Type
 | xref::enumeration/MegaW.adoc[`MegaW`]
+
+
+| Glossary mappings
+a|
+
+[cols="1,5"]
+!===
+! Mapping type ! Term
+
+! http://www.w3.org/2004/02/skos/core#exactMatch[`skos:exactMatch`]
+a! 
+
+https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/aanwezige-transportcapaciteit[`nbnl:aanwezige-transportcapaciteit`]
+
+
+
+!===
 
 
 |===
@@ -307,7 +324,7 @@ xref::class/Name.adoc[`Name`]
 //[discrete]
 [#demand_capacity_in_queue]
 === `demand_capacity_in_queue`
-+++The contract value of demand requests not yet granted. This is the "Wachtrij in capaciteit - afname" in the previous implementation.+++
++++The contract value of demand requests not yet granted. This is the "Wachtrij in capaciteit - afname" in the previous implementation, or "Nodig voor aanvragen in de huidige wachtrij".+++
 
 
 [cols="h,4",width=65%]
@@ -359,7 +376,7 @@ xref::class/Name.adoc[`Name`]
 //[discrete]
 [#demand_forecast_capacity]
 === `demand_forecast_capacity`
-+++Sum of all demand (in MW) forecast for the current year at the EnergyArea.+++
++++Sum of all demand (in MW) forecast for the current year at the EnergyArea, or "Nodig voor nog niet aangevraagde capaciteit, waarmee wel rekening wordt gehouden door de netbeheerder".+++
 
 
 [cols="h,4",width=65%]
@@ -385,7 +402,7 @@ xref::class/Name.adoc[`Name`]
 //[discrete]
 [#demand_quoted_capacity]
 === `demand_quoted_capacity`
-+++Sum of all demand (in MW) currently quoted at the EnergyArea.  This is the "Benodigde transportcapaciteit (in MW) afname" in the previous implementation.+++
++++Sum of all demand (in MW) currently quoted at the EnergyArea. This is the "Benodigde transportcapaciteit (in MW) afname" in the previous implementation, or "Nodig voor bestaande overeenkomsten en maatschappelijke reserve".+++
 
 
 [cols="h,4",width=65%]
@@ -492,7 +509,7 @@ xref::class/Name.adoc[`Name`]
 //[discrete]
 [#generation_available_capacity]
 === `generation_available_capacity`
-+++Available generation capacity (in MW) at the EnergyArea. This is the "Aanwezige transportcapaciteit (in MW) invoeding huidige jaar" in the previous implementation.+++
++++Available generation capacity (in MW) at the EnergyArea. This is the "Aanwezige transportcapaciteit (in MW) invoeding huidige jaar" in the previous implementation, or "Aanwezige transportcapaciteit".+++
 
 
 [cols="h,4",width=65%]
@@ -503,6 +520,23 @@ xref::class/Name.adoc[`Name`]
 | 0..1
 | Type
 | xref::enumeration/MegaW.adoc[`MegaW`]
+
+
+| Glossary mappings
+a|
+
+[cols="1,5"]
+!===
+! Mapping type ! Term
+
+! http://www.w3.org/2004/02/skos/core#exactMatch[`skos:exactMatch`]
+a! 
+
+https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/aanwezige-transportcapaciteit[`nbnl:aanwezige-transportcapaciteit`]
+
+
+
+!===
 
 
 |===
@@ -518,7 +552,7 @@ xref::class/Name.adoc[`Name`]
 //[discrete]
 [#generation_capacity_in_queue]
 === `generation_capacity_in_queue`
-+++The contract value of generation requests not yet granted. This is the "Wachtrij in capaciteit - invoeding" in the previous implementation.+++
++++The contract value of generation requests not yet granted. This is the "Wachtrij in capaciteit - invoeding" in the previous implementation, or "Nodig voor aanvragen in de wachtrij".+++
 
 
 [cols="h,4",width=65%]
@@ -570,7 +604,7 @@ xref::class/Name.adoc[`Name`]
 //[discrete]
 [#generation_forecast_capacity]
 === `generation_forecast_capacity`
-+++Sum of all forecast generation (in MW) for the current year at the EnergyArea.+++
++++Sum of all forecast generation (in MW) for the current year at the EnergyArea, or "Nodig voor nog niet aangevraagde capaciteit, waarmee wel rekening wordt gehouden door netbeheerder".+++
 
 
 [cols="h,4",width=65%]
@@ -596,7 +630,7 @@ xref::class/Name.adoc[`Name`]
 //[discrete]
 [#generation_quoted_capacity]
 === `generation_quoted_capacity`
-+++Sum of all currently quoted generation (in MW) at the EnergyArea. This is the "Benodigde transportcapaciteit (in MW) invoeding" in the previous implementation.+++
++++Sum of all currently quoted generation (in MW) at the EnergyArea.  This is the "Benodigde transportcapaciteit (in MW) invoeding" in the previous implementation, or "Nodig voor bestaande overeenkomsten en maatschappelijke reserve".+++
 
 
 [cols="h,4",width=65%]

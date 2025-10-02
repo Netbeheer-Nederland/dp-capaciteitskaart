@@ -313,7 +313,7 @@ classes:
       demand_capacity_in_queue:
         description: The contract value of demand requests not yet granted.
           This is the "Wachtrij in capaciteit - afname" in the previous
-          implementation.
+          implementation, or "Nodig voor aanvragen in de huidige wachtrij".
         slot_uri: this:EnergyArea.demandCapacityInQueue
         range: MegaW
         required: false
@@ -321,8 +321,9 @@ classes:
         minimum_value: 0
       demand_quoted_capacity:
         description: Sum of all demand (in MW) currently quoted at the
-          EnergyArea.  This is the "Benodigde transportcapaciteit (in MW)
-          afname" in the previous implementation.
+          EnergyArea. This is the "Benodigde transportcapaciteit (in MW)
+          afname" in the previous implementation, or "Nodig voor bestaande
+          overeenkomsten en maatschappelijke reserve".
         slot_uri: this:EnergyArea.demandQuotedCapacity
         range: MegaW
         required: false
@@ -333,15 +334,18 @@ classes:
           The value should reflect the capacity a network operator would make
           available to a connecting party. This is the "Aanwezige
           transportcapaciteit (in MW) afname huidige jaar" in the previous
-          implementation.
+          implementation, or "Aanwezige transportcapaciteit".
         slot_uri: this:EnergyArea.demandAvailableCapacity
         range: MegaW
         required: false
         multivalued: false
         minimum_value: 0
+        exact_mappings:
+          - nbnl:aanwezige-transportcapaciteit
       demand_forecast_capacity:
-        description: Sum of all demand (in MW) forecast for the current year at the
-          EnergyArea.
+        description: Sum of all demand (in MW) forecast for the current year at
+          the EnergyArea, or "Nodig voor nog niet aangevraagde capaciteit,
+          waarmee wel rekening wordt gehouden door de netbeheerder".
         slot_uri: this:EnergyArea.demandForecastCapacity
         range: MegaW
         required: false
@@ -373,17 +377,19 @@ classes:
         multivalued: false
         minimum_value: 0
       generation_capacity_in_queue:
-        description: The contract value of generation requests not yet granted. This
-          is the "Wachtrij in capaciteit - invoeding" in the previous implementation.
+        description: The contract value of generation requests not yet granted.
+          This is the "Wachtrij in capaciteit - invoeding" in the previous
+          implementation, or "Nodig voor aanvragen in de wachtrij".
         slot_uri: this:EnergyArea.generationCapacityInQueue
         range: MegaW
         required: false
         multivalued: false
         minimum_value: 0
       generation_quoted_capacity:
-        description: Sum of all currently quoted generation (in MW) at the EnergyArea.
-          This is the "Benodigde transportcapaciteit (in MW) invoeding" in the previous
-          implementation.
+        description: Sum of all currently quoted generation (in MW) at the
+          EnergyArea.  This is the "Benodigde transportcapaciteit (in MW)
+          invoeding" in the previous implementation, or "Nodig voor bestaande
+          overeenkomsten en maatschappelijke reserve".
         slot_uri: this:EnergyArea.generationQuotedCapacity
         range: MegaW
         required: false
@@ -392,15 +398,18 @@ classes:
       generation_available_capacity:
         description: Available generation capacity (in MW) at the EnergyArea. This
           is the "Aanwezige transportcapaciteit (in MW) invoeding huidige jaar" in
-          the previous implementation.
+          the previous implementation, or "Aanwezige transportcapaciteit".
         slot_uri: this:EnergyArea.generationAvailableCapacity
         range: MegaW
         required: false
         multivalued: false
         minimum_value: 0
+        exact_mappings:
+          - nbnl:aanwezige-transportcapaciteit
       generation_forecast_capacity:
-        description: Sum of all forecast generation (in MW) for the current year at
-          the EnergyArea.
+        description: Sum of all forecast generation (in MW) for the current
+          year at the EnergyArea, or "Nodig voor nog niet aangevraagde
+          capaciteit, waarmee wel rekening wordt gehouden door netbeheerder".
         slot_uri: this:EnergyArea.generationForecastCapacity
         range: MegaW
         required: false

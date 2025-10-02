@@ -9,7 +9,7 @@
                     "description": "Capacity information date and time interval. Allows providing multiple points in time to provide capacity information."
                 },
                 "demand_available_capacity": {
-                    "description": "The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the \"Aanwezige transportcapaciteit (in MW) afname huidige jaar\" in the previous implementation.",
+                    "description": "The available demand capacity (in MW) at the EnergyArea. The value should reflect the capacity a network operator would make available to a connecting party. This is the \"Aanwezige transportcapaciteit (in MW) afname huidige jaar\" in the previous implementation, or \"Aanwezige transportcapaciteit\".",
                     "minimum": 0,
                     "type": [
                         "number",
@@ -17,7 +17,7 @@
                     ]
                 },
                 "demand_capacity_in_queue": {
-                    "description": "The contract value of demand requests not yet granted. This is the \"Wachtrij in capaciteit - afname\" in the previous implementation.",
+                    "description": "The contract value of demand requests not yet granted. This is the \"Wachtrij in capaciteit - afname\" in the previous implementation, or \"Nodig voor aanvragen in de huidige wachtrij\".",
                     "minimum": 0,
                     "type": [
                         "number",
@@ -29,7 +29,7 @@
                     "description": "A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided."
                 },
                 "demand_forecast_capacity": {
-                    "description": "Sum of all demand (in MW) forecast for the current year at the EnergyArea.",
+                    "description": "Sum of all demand (in MW) forecast for the current year at the EnergyArea, or \"Nodig voor nog niet aangevraagde capaciteit, waarmee wel rekening wordt gehouden door de netbeheerder\".",
                     "minimum": 0,
                     "type": [
                         "number",
@@ -37,7 +37,7 @@
                     ]
                 },
                 "demand_quoted_capacity": {
-                    "description": "Sum of all demand (in MW) currently quoted at the EnergyArea.  This is the \"Benodigde transportcapaciteit (in MW) afname\" in the previous implementation.",
+                    "description": "Sum of all demand (in MW) currently quoted at the EnergyArea. This is the \"Benodigde transportcapaciteit (in MW) afname\" in the previous implementation, or \"Nodig voor bestaande overeenkomsten en maatschappelijke reserve\".",
                     "minimum": 0,
                     "type": [
                         "number",
@@ -68,7 +68,7 @@
                     ]
                 },
                 "generation_available_capacity": {
-                    "description": "Available generation capacity (in MW) at the EnergyArea. This is the \"Aanwezige transportcapaciteit (in MW) invoeding huidige jaar\" in the previous implementation.",
+                    "description": "Available generation capacity (in MW) at the EnergyArea. This is the \"Aanwezige transportcapaciteit (in MW) invoeding huidige jaar\" in the previous implementation, or \"Aanwezige transportcapaciteit\".",
                     "minimum": 0,
                     "type": [
                         "number",
@@ -76,7 +76,7 @@
                     ]
                 },
                 "generation_capacity_in_queue": {
-                    "description": "The contract value of generation requests not yet granted. This is the \"Wachtrij in capaciteit - invoeding\" in the previous implementation.",
+                    "description": "The contract value of generation requests not yet granted. This is the \"Wachtrij in capaciteit - invoeding\" in the previous implementation, or \"Nodig voor aanvragen in de wachtrij\".",
                     "minimum": 0,
                     "type": [
                         "number",
@@ -88,7 +88,7 @@
                     "description": "A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. Only specify this attribute if no PostcodeArea-s are provided."
                 },
                 "generation_forecast_capacity": {
-                    "description": "Sum of all forecast generation (in MW) for the current year at the EnergyArea.",
+                    "description": "Sum of all forecast generation (in MW) for the current year at the EnergyArea, or \"Nodig voor nog niet aangevraagde capaciteit, waarmee wel rekening wordt gehouden door netbeheerder\".",
                     "minimum": 0,
                     "type": [
                         "number",
@@ -96,7 +96,7 @@
                     ]
                 },
                 "generation_quoted_capacity": {
-                    "description": "Sum of all currently quoted generation (in MW) at the EnergyArea. This is the \"Benodigde transportcapaciteit (in MW) invoeding\" in the previous implementation.",
+                    "description": "Sum of all currently quoted generation (in MW) at the EnergyArea.  This is the \"Benodigde transportcapaciteit (in MW) invoeding\" in the previous implementation, or \"Nodig voor bestaande overeenkomsten en maatschappelijke reserve\".",
                     "minimum": 0,
                     "type": [
                         "number",
