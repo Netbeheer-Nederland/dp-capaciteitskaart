@@ -1,7 +1,7 @@
 identifier: '3238ebd8-ebe5-4593-83d8-7f3a25bafcff'
 conforms_to: http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart
 contact_point: 'ritger.teunissen@alliander.com'
-version: 2.0.0
+version: 2.1.0
 valid:
   end: '2025-01-21'
   start: '2025-12-21'
@@ -24,22 +24,30 @@ geographical_regions:
       - description: 'Liander'
         energy_areas:
           - short_code: 'os fictief 20-3i'
-            demand_alleviation_year: 2
+            demand_alleviation_year: 2028
             demand_energy_area_short_code: ''
-            generation_alleviation_year: 2
+            generation_alleviation_year: 2030
             generation_energy_area_short_code: ''
             works:
               - project_name: 'WO#_1234_Verzwaring_Pieterslaan'
+                status_kind: 'inProgress'
+                source: 'Investeringsplan'
                 time_schedules:
-                  - schedule_interval:
-                      end: '2026-01-10'
-                description: 'Uitbreiding netstation Pieterslaan'
-              - project_name: 'WO#_4321_Vervanging_Transformator'
-                time_schedules:
-                  - schedule_interval:
+                  - description: 'Eerste schatting (Van).'
+                    schedule_interval:
                       quarter: 3
                       year: 2026
-                description: 'Vervanging transformator'
+                  - description: 'Tweede schatting (Tot).'
+                    schedule_interval:
+                      quarter: 4
+                      year: 2026
+                description: 'Uitbreiding netstation Pieterslaan'
+              - project_name: 'WO#_4321_Vervanging_Transformator'
+                status_kind: 'approved'
+                time_schedules:
+                  - schedule_interval:
+                      start: '2025-01-10'
+                      end: '2026-01-10'
             area_capacity:
               - capacity_interval:
                   year: 2025
@@ -51,6 +59,11 @@ geographical_regions:
                 generation_capacity_in_queue: 0
                 generation_quoted_capacity: 38
                 generation_requests_in_queue: 0
+            congestion_info:
+              - description: 'Aanmeldrapport congestie'
+                congestion_url: 'https://example.com/aanmeldrapport'
+              - description: 'Voortgangsrapport congestie'
+                congestion_url: 'https://example.com/voortgangsrapport'
             postcode_areas:
               - demand_constraint: 'amber'
                 generation_constraint: 'transparant'

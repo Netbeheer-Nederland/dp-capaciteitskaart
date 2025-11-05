@@ -24,7 +24,7 @@ UpdateInfo.class: enterprise
 1.class: empty
 2.class: empty
 AreaCapacity.class: grid
-6.class: empty
+CongestionInfo.class: enterprise
 
 HeatmapDataSet.class: dataset
 GeographicalRegion.class: enterprise
@@ -33,16 +33,16 @@ EnergyArea.class: grid
 PostcodeArea.class: enterprise
 
 3.class: empty
-7.class: empty
-8.class: empty
-Work.class: enterprise
 4.class: empty
+5.class: empty
+Work.class: enterprise
+6.class: empty
 
 DateTimeInterval.class: grid
-9.class: empty
-10.class: empty
+7.class: empty
+8.class: empty
 WorkTimeSchedule.class: enterprise
-5.class: empty
+9.class: empty
 
 HeatmapDataSet -> UpdateInfo: "updated"
 HeatmapDataSet -> DateTimeInterval: "valid"
@@ -54,6 +54,7 @@ Work -> WorkTimeSchedule: "time_schedules"
 WorkTimeSchedule -> DateTimeInterval: "schedule_interval"
 EnergyArea -> PostcodeArea: "postcode_areas"
 EnergyArea -> AreaCapacity: "area_capacity"
+EnergyArea -> CongestionInfo: "congestion_info"
 
 classes: {
   empty: {
