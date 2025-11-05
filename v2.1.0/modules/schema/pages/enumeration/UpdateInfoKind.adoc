@@ -1,0 +1,68 @@
+= `UpdateInfoKind`
+:toclevels: 4
+
+
++++Type of information that has been updated as part of this dataset.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Enumeration
+
+| URI
+| `this:UpdateInfoKind`
+
+
+| CIM standard (perspective)
+| IEC61970 (Grid)
+
+
+
+|===
+
+== Values
+
+[cols="1,1,5",width=100%]
+|===
+| Value | URI | Description
+
+| `ATC`
+| `this:UpdateInfoKind.ATC`
+| +++Aanwezige transportcapaciteit.+++
+
+| `BTC`
+| `this:UpdateInfoKind.BTC`
+| +++Benodigde transportcapaciteit.+++
+
+| `JC`
+| `this:UpdateInfoKind.JC`
+| +++Jaartal congestie opgelost.+++
+
+| `KI`
+| `this:UpdateInfoKind.KI`
+| +++Kleurinformatie.+++
+
+| `NU`
+| `this:UpdateInfoKind.NU`
+| +++Netuitbreidingen.+++
+
+| `WR`
+| `this:UpdateInfoKind.WR`
+| +++Wachtrij.+++
+|===
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/UpdateInfo.adoc[`UpdateInfo`] | xref::class/UpdateInfo.adoc#type[`type`]
+
+
+|===
+
